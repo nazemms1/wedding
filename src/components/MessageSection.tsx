@@ -10,11 +10,20 @@ export function MessageSection() {
     <motion.section
       ref={ref as React.RefObject<HTMLElement>}
       className="relative py-28 md:py-40 px-6 overflow-hidden"
-      style={{ background: theme.bg.section }}
       initial={{ opacity: 0 }}
       animate={inView ? { opacity: 1 } : {}}
       transition={{ duration: 0.9 }}
     >
+      {/* Background image */}
+      <img
+        src={config.sectionImages.message}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {/* Dark overlay replaces solid bg */}
+      <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
+
       {/* Vignette */}
       <div className="absolute inset-0 pointer-events-none" style={{ background: theme.bg.vignette }} />
 

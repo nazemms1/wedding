@@ -61,11 +61,20 @@ export function DateSection() {
     <motion.section
       ref={ref as React.RefObject<HTMLElement>}
       className="relative py-32 md:py-44 px-6 text-center overflow-hidden"
-      style={{ background: theme.bg.section }}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.9 }}
     >
+      {/* Background image */}
+      <img
+        src={config.sectionImages.date}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {/* Dark overlay replaces solid bg */}
+      <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
+
       {/* Vignette */}
       <div className="absolute inset-0 pointer-events-none" style={{ background: theme.bg.vignette }} />
 

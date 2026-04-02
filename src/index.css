@@ -33,7 +33,7 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-ivory);
+  background-color: #050E1F;
   color: var(--color-charcoal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -65,10 +65,10 @@ canvas.particles {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-ivory);
+  background: #050E1F;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--color-navy), var(--color-sky));
+  background: linear-gradient(to bottom, #D4AF6E, #C9A84C, #B8924A);
   border-radius: 3px;
 }
 

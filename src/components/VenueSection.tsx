@@ -10,11 +10,20 @@ export function VenueSection() {
     <motion.section
       ref={ref as React.RefObject<HTMLElement>}
       className="relative py-28 md:py-40 px-6 overflow-hidden"
-      style={{ background: theme.bg.section }}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.9 }}
     >
+      {/* Background image */}
+      <img
+        src={config.sectionImages.venue}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {/* Dark overlay replaces solid bg */}
+      <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
+
       {/* Vignette */}
       <div className="absolute inset-0 pointer-events-none" style={{ background: theme.bg.vignette }} />
 
@@ -125,60 +134,74 @@ export function VenueSection() {
           </address>
         </motion.div>
 
-        {/* Map */}
+        {/* Map card */}
         <motion.div
-          className="relative w-full overflow-hidden mb-10"
-          style={{ paddingBottom: '42%', minHeight: '240px' }}
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={inView ? { opacity: 1, scale: 1 } : {}}
+          className="relative mb-10"
+          style={{
+            background: 'rgba(5,14,31,0.7)',
+            border: `1px solid ${theme.ornament.half}`,
+            boxShadow: `0 0 0 4px rgba(212,175,110,0.06), 0 32px 80px rgba(0,0,0,0.5)`,
+          }}
+          initial={{ opacity: 0, y: 32 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.5, duration: 0.85 }}
         >
-          <iframe
-            src={config.venue.googleMapsEmbedUrl}
-            title={`Map to ${config.venue.name}`}
-            className="absolute inset-0 w-full h-full border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
-          {/* Gold border overlay */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              border: '2px solid transparent',
-              background: `linear-gradient(#0A1A3A, #0A1A3A) padding-box, linear-gradient(135deg, ${theme.ornament.solid}, rgba(212,175,110,0.3), ${theme.ornament.solid}) border-box`,
-            }}
-          />
-        </motion.div>
+          {/* Top accent bar */}
+          <div className="h-0.5 w-full" style={{ background: `linear-gradient(to right, transparent, ${theme.ornament.solid}, transparent)` }} />
 
-        {/* Get Directions button */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.65, duration: 0.7 }}
-        >
-          <motion.a
-            href={config.venue.googleMapsLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-9 py-4 text-sm tracking-[0.18em] uppercase"
-            style={{
-              border: `1px solid ${theme.button.border}`,
-              color: theme.button.text,
-              background: 'transparent',
-              fontFamily: theme.font.body,
-            }}
-            whileHover={{ scale: 1.04, background: theme.button.hoverBg }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ duration: 0.2 }}
+          {/* Card header */}
+          <div
+            className="flex items-center justify-between px-5 py-3"
+            style={{ borderBottom: `1px solid ${theme.ornament.soft}` }}
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-            Get Directions
-          </motion.a>
+            <div className="flex items-center gap-2">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={theme.ornament.solid} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span style={{ fontFamily: theme.font.body, fontSize: '0.65rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: theme.color.tagline }}>
+                {config.venue.address}
+              </span>
+            </div>
+            <motion.a
+              href={config.venue.googleMapsLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-1.5 text-xs tracking-[0.15em] uppercase"
+              style={{
+                border: `1px solid ${theme.button.border}`,
+                color: theme.button.text,
+                fontFamily: theme.font.body,
+              }}
+              whileHover={{ background: theme.button.hoverBg, scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.2 }}
+            >
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              Directions
+            </motion.a>
+          </div>
+
+          {/* iframe */}
+          <div className="relative w-full" style={{ paddingBottom: '52%', minHeight: '300px' }}>
+            <iframe
+              src={config.venue.googleMapsEmbedUrl}
+              title={`Map to ${config.venue.name}`}
+              className="absolute inset-0 w-full h-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+
+          {/* Corner ornaments */}
+          <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2" style={{ borderColor: theme.ornament.solid }} />
+          <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2" style={{ borderColor: theme.ornament.solid }} />
+          <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2" style={{ borderColor: theme.ornament.solid }} />
+          <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2" style={{ borderColor: theme.ornament.solid }} />
         </motion.div>
 
         {/* Bottom rule */}

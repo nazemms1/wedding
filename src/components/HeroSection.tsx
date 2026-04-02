@@ -23,7 +23,11 @@ function Sparkles() {
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
             background:
-              i % 3 === 0 ? theme.color.gold : i % 3 === 1 ? theme.color.goldLight : theme.color.goldDark,
+              i % 3 === 0
+                ? theme.color.gold
+                : i % 3 === 1
+                  ? theme.color.goldLight
+                  : theme.color.goldDark,
           }}
           animate={{
             opacity: [0, 1, 0],
@@ -43,7 +47,7 @@ function Sparkles() {
 
 export function HeroSection({ onEnter }: HeroSectionProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoFailed, setVideoFailed] = useState(false);
+  const [, setVideoFailed] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
@@ -83,7 +87,13 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
       {/* Fallback */}
 
       {/* Multi-layer overlay */}
-      <div className="absolute inset-0 bg-black/55" style={{ background: 'linear-gradient(160deg, rgba(5,14,31,0.85) 0%, rgba(10,26,58,0.75) 60%, rgba(8,21,48,0.7) 100%)' }} />
+      <div
+        className="absolute inset-0 bg-black/55"
+        style={{
+          background:
+            "linear-gradient(160deg, rgba(5,14,31,0.85) 0%, rgba(10,26,58,0.75) 60%, rgba(8,21,48,0.7) 100%)",
+        }}
+      />
       <div className="absolute inset-0 bg-black/20" />
 
       {/* Animated aurora glow */}
@@ -275,7 +285,10 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.6 }}
       >
-        <span className="text-[10px] tracking-widest uppercase" style={{ color: theme.scroll.label }}>
+        <span
+          className="text-[10px] tracking-widest uppercase"
+          style={{ color: theme.scroll.label }}
+        >
           Scroll
         </span>
         <motion.div

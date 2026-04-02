@@ -73,6 +73,16 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
+      {/* Background image */}
+      <img
+        src={config.sectionImages.envelope}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
+
       {/* Vignette */}
       <div className="absolute inset-0 pointer-events-none" style={{ background: theme.bg.vignette }} />
 

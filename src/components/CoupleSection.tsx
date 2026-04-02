@@ -84,12 +84,20 @@ export function CoupleSection() {
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
 
-      {/* ── Navy background ── */}
+      {/* ── Background image ── */}
+      <img
+        src={config.sectionImages.couple}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      {/* ── Navy overlay ── */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(160deg, #050E1F 0%, #0A1A3A 30%, #0D1E45 60%, #081530 100%)",
+            "linear-gradient(160deg, rgba(5,14,31,0.88) 0%, rgba(10,26,58,0.82) 30%, rgba(13,30,69,0.80) 60%, rgba(8,21,48,0.88) 100%)",
         }}
       />
 

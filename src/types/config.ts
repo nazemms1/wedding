@@ -35,6 +35,14 @@ export interface SiteConfig {
     src: string
     poster: string
   }
+  sectionImages: {
+    envelope: string
+    couple: string
+    message: string
+    date: string
+    venue: string
+    guestbook: string
+  }
 }
 
 export interface GalleryImage {
