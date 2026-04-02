@@ -19,8 +19,8 @@ export const config: SiteConfig = {
     signature: 'With all our love, Joudi & Bisher',
   },
   event: {
-    weddingDate: '2026-05-01T17:00:00',
-    displayDate: 'Friday, May 1st, 2026',
+    weddingDate: '2026-05-03T19:00:00',
+    displayDate: 'Sunday, May 3st, 2026',
     displayTime: '5:00 PM',
   },
   venue: {
