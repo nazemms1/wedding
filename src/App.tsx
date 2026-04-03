@@ -9,6 +9,7 @@ import { VenueSection } from "./components/VenueSection";
 import { GuestbookSection } from "./components/GuestbookSection";
 import { BackToTop } from "./components/BackToTop";
 import { FloatingHearts } from "./components/FloatingHearts";
+import { SectionDivider } from "./components/SectionDivider";
 
 function App() {
   const [stage, setStage] = useState<"envelope" | "main">("envelope");
@@ -31,10 +32,14 @@ function App() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <CoupleSection />
+            <SectionDivider />
             <MessageSection />
+            <SectionDivider />
             <DateSection />
+            <SectionDivider />
             <VenueSection />
-
+            <SectionDivider />
+            {/* <ClosingSection /> */}
             <GuestbookSection />
           </motion.main>
         )}

@@ -15,11 +15,10 @@ export function VenueSection() {
       transition={{ duration: 0.9 }}
     >
       {/* Background image */}
-      <img
-        src={config.sectionImages.venue}
-        alt=""
+      <div
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0"
+        style={{ backgroundImage: `url(${config.sectionImages.venue})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
       />
       {/* Dark overlay replaces solid bg */}
       <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
@@ -84,7 +83,7 @@ export function VenueSection() {
         </svg>
       </motion.div>
 
-      <div className="max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-4xl mx-auto">
 
         {/* Top rule */}
         <motion.div

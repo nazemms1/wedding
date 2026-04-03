@@ -28,7 +28,7 @@ function Particle({ i }: { i: number }) {
       transition={{
         duration: 3 + (i % 6) * 0.7,
         repeat: Infinity,
-        delay: (i * 0.27) % 5,
+        delay: (i * 0.27) % 6,
         ease: "easeInOut",
       }}
     />
@@ -36,7 +36,9 @@ function Particle({ i }: { i: number }) {
 }
 
 export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
-  const [stage, setStage] = useState<"idle" | "splitting" | "reveal" | "exiting">("idle");
+  const [stage, setStage] = useState<
+    "idle" | "splitting" | "reveal" | "exiting"
+  >("idle");
   const [hovered, setHovered] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
@@ -53,12 +55,14 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
     setTimeout(onOpen, 3900);
   }
 
-  const splitting = stage === "splitting" || stage === "reveal" || stage === "exiting";
+  const splitting =
+    stage === "splitting" || stage === "reveal" || stage === "exiting";
   const revealed = stage === "reveal" || stage === "exiting";
   const exiting = stage === "exiting";
 
   // Card surface — dark navy with subtle gold sheen
-  const cardSurface = "linear-gradient(160deg, #0A1A3A 0%, #0D1E45 50%, #081530 100%)";
+  const cardSurface =
+    "linear-gradient(160deg, #0A1A3A 0%, #0D1E45 50%, #081530 100%)";
 
   return (
     <motion.div
@@ -81,10 +85,16 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
         className="absolute inset-0 w-full h-full object-cover"
       />
       {/* Dark overlay */}
-      <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
+      <div
+        className="absolute inset-0"
+        style={{ background: theme.bg.section, opacity: 0.88 }}
+      />
 
       {/* Vignette */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: theme.bg.vignette }} />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: theme.bg.vignette }}
+      />
 
       {/* Ambient gold glow */}
       <motion.div
@@ -93,7 +103,8 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           width: "80vmin",
           height: "80vmin",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(212,175,110,0.07) 0%, transparent 70%)",
+          background:
+            "radial-gradient(circle, rgba(212,175,110,0.07) 0%, transparent 70%)",
           top: "50%",
           left: "50%",
           transform: "translate(-50%,-50%)",
@@ -110,7 +121,8 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
             style={{
               width: "100vw",
               height: "100vh",
-              background: "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,175,110,0.1) 0%, transparent 70%)",
+              background:
+                "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,175,110,0.1) 0%, transparent 70%)",
               top: 0,
               left: 0,
             }}
@@ -132,13 +144,24 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
       {/* ─── THE CARD ─── */}
       <div
         className="relative"
-        style={{ width: "min(90vw, 650px)", height: "min(130vw, 680px)", perspective: 1600 }}
+        style={{
+          width: "min(90vw, 650px)",
+          height: "min(130vw, 680px)",
+          perspective: 1600,
+        }}
       >
         {/* ── LEFT HALF ── */}
         <motion.div
           className="absolute top-0 left-0 overflow-hidden"
-          style={{ width: "50%", height: "100%", transformOrigin: "left center", zIndex: 10 }}
-          animate={splitting ? { x: "-105%", rotateY: -25 } : { x: 0, rotateY: 0 }}
+          style={{
+            width: "50%",
+            height: "100%",
+            transformOrigin: "left center",
+            zIndex: 10,
+          }}
+          animate={
+            splitting ? { x: "-105%", rotateY: -25 } : { x: 0, rotateY: 0 }
+          }
           transition={{ duration: 0.85, ease: [0.4, 0, 0.2, 1] }}
         >
           <div
@@ -158,26 +181,76 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           />
           {/* Left half content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-              <div style={{ width: 1, height: 60, background: `linear-gradient(to bottom, transparent, ${theme.ornament.half})` }} />
-              <p style={{ fontFamily: theme.font.display, fontSize: "clamp(28px, 7vw, 48px)", color: theme.color.goldLight, lineHeight: 1, letterSpacing: "0.02em" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 8,
+              }}
+            >
+              <div
+                style={{
+                  width: 1,
+                  height: 60,
+                  background: `linear-gradient(to bottom, transparent, ${theme.ornament.half})`,
+                }}
+              />
+              <p
+                style={{
+                  fontFamily: theme.font.display,
+                  fontSize: "clamp(28px, 7vw, 48px)",
+                  color: theme.color.goldLight,
+                  lineHeight: 1,
+                  letterSpacing: "0.02em",
+                }}
+              >
                 {config.couple.partner1}
               </p>
-              <p style={{ fontFamily: theme.font.body, fontSize: "clamp(7px, 1.5vw, 9px)", letterSpacing: "0.4em", textTransform: "uppercase", color: theme.color.tagline, marginTop: 6 }}>
+              <p
+                style={{
+                  fontFamily: theme.font.body,
+                  fontSize: "clamp(7px, 1.5vw, 9px)",
+                  letterSpacing: "0.4em",
+                  textTransform: "uppercase",
+                  color: theme.color.tagline,
+                  marginTop: 6,
+                }}
+              >
                 &amp; {config.couple.partner2}
               </p>
-              <div style={{ width: 1, height: 40, background: `linear-gradient(to bottom, ${theme.ornament.half}, transparent)` }} />
+              <div
+                style={{
+                  width: 1,
+                  height: 40,
+                  background: `linear-gradient(to bottom, ${theme.ornament.half}, transparent)`,
+                }}
+              />
             </div>
           </div>
           {/* Center fold shadow */}
-          <div className="absolute top-0 right-0 bottom-0" style={{ width: 18, background: "linear-gradient(to left, rgba(0,0,0,0.2), transparent)" }} />
+          <div
+            className="absolute top-0 right-0 bottom-0"
+            style={{
+              width: 18,
+              background:
+                "linear-gradient(to left, rgba(0,0,0,0.2), transparent)",
+            }}
+          />
         </motion.div>
 
         {/* ── RIGHT HALF ── */}
         <motion.div
           className="absolute top-0 right-0 overflow-hidden"
-          style={{ width: "50%", height: "100%", transformOrigin: "right center", zIndex: 10 }}
-          animate={splitting ? { x: "105%", rotateY: 25 } : { x: 0, rotateY: 0 }}
+          style={{
+            width: "50%",
+            height: "100%",
+            transformOrigin: "right center",
+            zIndex: 10,
+          }}
+          animate={
+            splitting ? { x: "105%", rotateY: 25 } : { x: 0, rotateY: 0 }
+          }
           transition={{ duration: 0.85, ease: [0.4, 0, 0.2, 1] }}
         >
           <div
@@ -193,20 +266,70 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           />
           {/* Right half content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-              <div style={{ width: 1, height: 60, background: `linear-gradient(to bottom, transparent, ${theme.ornament.half})` }} />
-              <p style={{ fontFamily: theme.font.display, fontSize: "clamp(11px, 2.5vw, 16px)", color: theme.color.gold, fontStyle: "italic", letterSpacing: "0.08em" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 8,
+              }}
+            >
+              <div
+                style={{
+                  width: 1,
+                  height: 60,
+                  background: `linear-gradient(to bottom, transparent, ${theme.ornament.half})`,
+                }}
+              />
+              <p
+                style={{
+                  fontFamily: theme.font.display,
+                  fontSize: "clamp(11px, 2.5vw, 16px)",
+                  color: theme.color.gold,
+                  fontStyle: "italic",
+                  letterSpacing: "0.08em",
+                }}
+              >
                 {config.event.displayDate}
               </p>
-              <div style={{ width: 40, height: 1, background: `linear-gradient(to right, transparent, ${theme.ornament.mid}, transparent)`, margin: "4px 0" }} />
-              <p style={{ fontFamily: theme.font.body, fontSize: "clamp(7px, 1.5vw, 9px)", letterSpacing: "0.4em", textTransform: "uppercase", color: theme.color.tagline }}>
+              <div
+                style={{
+                  width: 40,
+                  height: 1,
+                  background: `linear-gradient(to right, transparent, ${theme.ornament.mid}, transparent)`,
+                  margin: "4px 0",
+                }}
+              />
+              <p
+                style={{
+                  fontFamily: theme.font.body,
+                  fontSize: "clamp(7px, 1.5vw, 9px)",
+                  letterSpacing: "0.4em",
+                  textTransform: "uppercase",
+                  color: theme.color.tagline,
+                }}
+              >
                 {config.venue.name}
               </p>
-              <div style={{ width: 1, height: 40, background: `linear-gradient(to bottom, ${theme.ornament.half}, transparent)`, marginTop: 6 }} />
+              <div
+                style={{
+                  width: 1,
+                  height: 40,
+                  background: `linear-gradient(to bottom, ${theme.ornament.half}, transparent)`,
+                  marginTop: 6,
+                }}
+              />
             </div>
           </div>
           {/* Center fold shadow */}
-          <div className="absolute top-0 left-0 bottom-0" style={{ width: 18, background: "linear-gradient(to right, rgba(0,0,0,0.2), transparent)" }} />
+          <div
+            className="absolute top-0 left-0 bottom-0"
+            style={{
+              width: 18,
+              background:
+                "linear-gradient(to right, rgba(0,0,0,0.2), transparent)",
+            }}
+          />
         </motion.div>
 
         {/* ── CARD OUTER BORDER ── */}
@@ -217,8 +340,12 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
             splitting
               ? { boxShadow: "none", border: "none" }
               : hovered
-                ? { boxShadow: `0 0 0 1.5px ${theme.ornament.half}, 0 0 50px rgba(212,175,110,0.15), 0 40px 100px rgba(0,0,0,0.7)` }
-                : { boxShadow: `0 0 0 1px rgba(212,175,110,0.3), 0 40px 80px rgba(0,0,0,0.65)` }
+                ? {
+                    boxShadow: `0 0 0 1.5px ${theme.ornament.half}, 0 0 50px rgba(212,175,110,0.15), 0 40px 100px rgba(0,0,0,0.7)`,
+                  }
+                : {
+                    boxShadow: `0 0 0 1px rgba(212,175,110,0.3), 0 40px 80px rgba(0,0,0,0.65)`,
+                  }
           }
           transition={{ duration: 0.35 }}
         />
@@ -230,7 +357,8 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
             left: "calc(50% - 1px)",
             width: 2,
             zIndex: 12,
-            background: "linear-gradient(to bottom, transparent 5%, rgba(212,175,110,0.06) 20%, rgba(212,175,110,0.1) 50%, rgba(212,175,110,0.06) 80%, transparent 95%)",
+            background:
+              "linear-gradient(to bottom, transparent 5%, rgba(212,175,110,0.06) 20%, rgba(212,175,110,0.1) 50%, rgba(212,175,110,0.06) 80%, transparent 95%)",
           }}
         />
 
@@ -239,11 +367,24 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           {stage === "idle" && (
             <motion.div
               className="absolute"
-              style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)", zIndex: 20, width: 72, height: 72 }}
+              style={{
+                left: "50%",
+                top: "50%",
+                transform: "translate(-50%, -50%)",
+                zIndex: 20,
+                width: 72,
+                height: 72,
+              }}
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0, transition: { duration: 0.2 } }}
-              transition={{ delay: 0.6, duration: 0.7, type: "spring", stiffness: 160, damping: 12 }}
+              transition={{
+                delay: 0.6,
+                duration: 0.7,
+                type: "spring",
+                stiffness: 160,
+                damping: 12,
+              }}
             >
               {/* Outer wax body — gold */}
               <div
@@ -252,11 +393,22 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   inset: 0,
                   borderRadius: "50%",
                   background: `radial-gradient(circle at 36% 30%, #E8C97A, ${theme.color.gold} 55%, ${theme.color.goldDark} 100%)`,
-                  boxShadow: ["0 6px 20px rgba(0,0,0,0.65)", "0 1px 0 rgba(255,255,255,0.2) inset", "0 -3px 8px rgba(0,0,0,0.4) inset"].join(", "),
+                  boxShadow: [
+                    "0 6px 20px rgba(0,0,0,0.65)",
+                    "0 1px 0 rgba(255,255,255,0.2) inset",
+                    "0 -3px 8px rgba(0,0,0,0.4) inset",
+                  ].join(", "),
                 }}
               />
               {/* Ring */}
-              <div style={{ position: "absolute", inset: 5, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.2)" }} />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 5,
+                  borderRadius: "50%",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                }}
+              />
               {/* Inner disc */}
               <div
                 style={{
@@ -268,18 +420,55 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                 }}
               />
               {/* Initials */}
-              <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <span style={{ fontFamily: theme.font.display, color: "#0A1A3A", fontSize: 15, fontStyle: "italic", letterSpacing: "0.04em", fontWeight: 600 }}>
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: theme.font.display,
+                    color: "#0A1A3A",
+                    fontSize: 15,
+                    fontStyle: "italic",
+                    letterSpacing: "0.04em",
+                    fontWeight: 600,
+                  }}
+                >
                   J&amp;B
                 </span>
               </div>
               {/* Shine */}
-              <div style={{ position: "absolute", top: 8, left: 12, width: 20, height: 10, borderRadius: "50%", background: "rgba(255,255,255,0.25)", transform: "rotate(-20deg)" }} />
+              <div
+                style={{
+                  position: "absolute",
+                  top: 8,
+                  left: 12,
+                  width: 20,
+                  height: 10,
+                  borderRadius: "50%",
+                  background: "rgba(255,255,255,0.25)",
+                  transform: "rotate(-20deg)",
+                }}
+              />
               {/* Pulse ring */}
               <motion.div
-                style={{ position: "absolute", inset: -5, borderRadius: "50%", border: `1.5px solid ${theme.ornament.half}` }}
+                style={{
+                  position: "absolute",
+                  inset: -5,
+                  borderRadius: "50%",
+                  border: `1.5px solid ${theme.ornament.half}`,
+                }}
                 animate={{ scale: [1, 1.35, 1], opacity: [0.5, 0, 0.5] }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: "easeOut" }}
+                transition={{
+                  duration: 2.4,
+                  repeat: Infinity,
+                  ease: "easeOut",
+                }}
               />
             </motion.div>
           )}
@@ -305,10 +494,23 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Inner border */}
-              <div style={{ position: "absolute", inset: 14, border: `1px solid ${theme.ornament.soft}`, borderRadius: 3, pointerEvents: "none" }} />
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 14,
+                  border: `1px solid ${theme.ornament.soft}`,
+                  borderRadius: 3,
+                  pointerEvents: "none",
+                }}
+              />
 
               {/* Corner ornaments — rotated diamonds */}
-              {[{ top: 18, left: 18 }, { top: 18, right: 18 }, { bottom: 18, left: 18 }, { bottom: 18, right: 18 }].map((pos, i) => (
+              {[
+                { top: 18, left: 18 },
+                { top: 18, right: 18 },
+                { bottom: 18, left: 18 },
+                { bottom: 18, right: 18 },
+              ].map((pos, i) => (
                 <div
                   key={i}
                   style={{
@@ -337,12 +539,27 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
               />
 
               {/* Content */}
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 0, padding: "0 32px" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 0,
+                  padding: "0 32px",
+                }}
+              >
                 <motion.p
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15, duration: 0.5 }}
-                  style={{ fontFamily: theme.font.body, fontSize: "clamp(7px, 1.6vw, 10px)", letterSpacing: "0.5em", textTransform: "uppercase", color: theme.color.gold, marginBottom: 14 }}
+                  style={{
+                    fontFamily: theme.font.body,
+                    fontSize: "clamp(7px, 1.6vw, 10px)",
+                    letterSpacing: "0.5em",
+                    textTransform: "uppercase",
+                    color: theme.color.gold,
+                    marginBottom: 14,
+                  }}
                 >
                   You are cordially invited
                 </motion.p>
@@ -351,14 +568,26 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 0.25, duration: 0.5 }}
-                  style={{ width: 120, height: 1, background: `linear-gradient(to right, transparent, ${theme.ornament.solid}, transparent)`, marginBottom: 20 }}
+                  style={{
+                    width: 120,
+                    height: 1,
+                    background: `linear-gradient(to right, transparent, ${theme.ornament.solid}, transparent)`,
+                    marginBottom: 20,
+                  }}
                 />
 
                 <motion.p
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
-                  style={{ fontFamily: theme.font.display, fontSize: "clamp(30px, 8vw, 58px)", color: theme.color.goldLight, lineHeight: 1.05, textAlign: "center", letterSpacing: "0.02em" }}
+                  style={{
+                    fontFamily: theme.font.display,
+                    fontSize: "clamp(30px, 8vw, 58px)",
+                    color: theme.color.goldLight,
+                    lineHeight: 1.05,
+                    textAlign: "center",
+                    letterSpacing: "0.02em",
+                  }}
                 >
                   {config.couple.partner1}
                 </motion.p>
@@ -366,8 +595,19 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                 <motion.p
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.45, duration: 0.5, type: "spring", stiffness: 200 }}
-                  style={{ fontFamily: theme.font.display, fontSize: "clamp(20px, 5vw, 34px)", color: theme.color.gold, fontStyle: "italic", margin: "8px 0" }}
+                  transition={{
+                    delay: 0.45,
+                    duration: 0.5,
+                    type: "spring",
+                    stiffness: 200,
+                  }}
+                  style={{
+                    fontFamily: theme.font.display,
+                    fontSize: "clamp(20px, 5vw, 34px)",
+                    color: theme.color.gold,
+                    fontStyle: "italic",
+                    margin: "8px 0",
+                  }}
                 >
                   &amp;
                 </motion.p>
@@ -376,7 +616,14 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.55, duration: 0.6, ease: "easeOut" }}
-                  style={{ fontFamily: theme.font.display, fontSize: "clamp(30px, 8vw, 58px)", color: theme.color.goldDark, lineHeight: 1.05, textAlign: "center", letterSpacing: "0.02em" }}
+                  style={{
+                    fontFamily: theme.font.display,
+                    fontSize: "clamp(30px, 8vw, 58px)",
+                    color: theme.color.goldDark,
+                    lineHeight: 1.05,
+                    textAlign: "center",
+                    letterSpacing: "0.02em",
+                  }}
                 >
                   {config.couple.partner2}
                 </motion.p>
@@ -385,14 +632,26 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 0.65, duration: 0.5 }}
-                  style={{ width: 120, height: 1, background: `linear-gradient(to right, transparent, ${theme.ornament.solid}, transparent)`, margin: "20px 0 16px" }}
+                  style={{
+                    width: 120,
+                    height: 1,
+                    background: `linear-gradient(to right, transparent, ${theme.ornament.solid}, transparent)`,
+                    margin: "20px 0 16px",
+                  }}
                 />
 
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.75, duration: 0.5 }}
-                  style={{ fontFamily: theme.font.display, fontSize: "clamp(12px, 2.5vw, 17px)", color: theme.color.tagline, fontStyle: "italic", letterSpacing: "0.04em", marginBottom: 8 }}
+                  style={{
+                    fontFamily: theme.font.display,
+                    fontSize: "clamp(12px, 2.5vw, 17px)",
+                    color: theme.color.tagline,
+                    fontStyle: "italic",
+                    letterSpacing: "0.04em",
+                    marginBottom: 8,
+                  }}
                 >
                   {config.event.displayDate}
                 </motion.p>
@@ -401,7 +660,14 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.85, duration: 0.5 }}
-                  style={{ fontFamily: theme.font.body, fontSize: "clamp(7px, 1.4vw, 9px)", letterSpacing: "0.4em", textTransform: "uppercase", color: theme.color.subtle, marginBottom: 28 }}
+                  style={{
+                    fontFamily: theme.font.body,
+                    fontSize: "clamp(7px, 1.4vw, 9px)",
+                    letterSpacing: "0.4em",
+                    textTransform: "uppercase",
+                    color: theme.color.subtle,
+                    marginBottom: 28,
+                  }}
                 >
                   {config.event.displayTime} · {config.venue.name}
                 </motion.p>
@@ -421,7 +687,15 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
               exit={{ opacity: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
             >
-              <p style={{ fontFamily: theme.font.body, fontSize: "clamp(7px, 1.5vw, 9px)", letterSpacing: "0.5em", textTransform: "uppercase", color: theme.color.subtle }}>
+              <p
+                style={{
+                  fontFamily: theme.font.body,
+                  fontSize: "clamp(7px, 1.5vw, 9px)",
+                  letterSpacing: "0.5em",
+                  textTransform: "uppercase",
+                  color: theme.color.subtle,
+                }}
+              >
                 {config.couple.partner1} &amp; {config.couple.partner2}
               </p>
             </motion.div>
@@ -439,7 +713,15 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
               exit={{ opacity: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
             >
-              <p style={{ fontFamily: theme.font.body, fontSize: "clamp(7px, 1.4vw, 9px)", letterSpacing: "0.4em", textTransform: "uppercase", color: theme.color.subtle }}>
+              <p
+                style={{
+                  fontFamily: theme.font.body,
+                  fontSize: "clamp(7px, 1.4vw, 9px)",
+                  letterSpacing: "0.4em",
+                  textTransform: "uppercase",
+                  color: theme.color.subtle,
+                }}
+              >
                 {config.event.displayDate}
               </p>
             </motion.div>
@@ -459,14 +741,33 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
             transition={{ duration: 0.5 }}
           >
             <motion.svg
-              width="18" height="10" viewBox="0 0 18 10" fill="none"
+              width="18"
+              height="10"
+              viewBox="0 0 18 10"
+              fill="none"
               animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+              transition={{
+                duration: 1.6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             >
-              <path d="M1 9L9 1L17 9" stroke={theme.ornament.half} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M1 9L9 1L17 9"
+                stroke={theme.ornament.half}
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </motion.svg>
             <motion.p
-              style={{ fontFamily: theme.font.body, fontSize: "clamp(8px, 1.5vw, 10px)", letterSpacing: "0.45em", textTransform: "uppercase", color: theme.ornament.half }}
+              style={{
+                fontFamily: theme.font.body,
+                fontSize: "clamp(8px, 1.5vw, 10px)",
+                letterSpacing: "0.45em",
+                textTransform: "uppercase",
+                color: theme.ornament.half,
+              }}
               animate={{ opacity: [0.4, 0.85, 0.4] }}
               transition={{ duration: 2.4, repeat: Infinity }}
             >
@@ -481,7 +782,14 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
         {stage === "idle" && (
           <motion.p
             className="absolute"
-            style={{ top: "6%", fontFamily: theme.font.display, fontSize: "clamp(11px, 2vw, 14px)", letterSpacing: "0.4em", color: theme.color.tagline, fontStyle: "italic" }}
+            style={{
+              top: "6%",
+              fontFamily: theme.font.display,
+              fontSize: "clamp(11px, 2vw, 14px)",
+              letterSpacing: "0.4em",
+              color: theme.color.tagline,
+              fontStyle: "italic",
+            }}
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}

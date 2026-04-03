@@ -19,9 +19,9 @@ export const config: SiteConfig = {
     signature: "With all our love, Joudi & Bisher",
   },
   event: {
-    weddingDate: "2026-05-03T19:00:00",
+    weddingDate: "2026-05-03T21:00:00",
     displayDate: "Sunday, May 3st, 2026",
-    displayTime: "5:00 PM",
+    displayTime: "7:00 PM",
   },
   venue: {
     name: "The Grand Rose Garden",
@@ -63,21 +63,16 @@ export const config: SiteConfig = {
   },
   sectionImages: {
     /** Envelope intro — soft bokeh garden / outdoor ceremony */
-    envelope:
-      "https://images.unsplash.com/photo-1513278974582-3e1b4a4fa21e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    envelope: "/wedding/envelope.jpeg",
     /** Couple section — romantic bokeh florals */
-    couple:
-      "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?w=1920&q=80",
+    couple: "/wedding/wedding-ring.jpeg",
     /** Message section — romantic blurred bokeh / soft florals */
-    message:
-      "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1920&q=80",
+    message: "/wedding/message.jpeg",
     /** Date section — outdoor ceremony chairs */
-    date: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1920&q=80",
+    date: "/wedding/date.jpeg",
     /** Venue section — grand ballroom */
-    venue:
-      "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920&q=80",
+    venue: "/wedding/venue.jpeg",
     /** Guestbook section — couple hands / ring detail */
-    guestbook:
-      "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1920&q=80",
+    guestbook: "/wedding/guestbook.jpeg",
   },
 };

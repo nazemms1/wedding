@@ -14,32 +14,34 @@ interface CountdownBoxProps {
 function CountdownBox({ value, label, delay, inView }: CountdownBoxProps) {
   return (
     <motion.div
-      className="flex flex-col items-center gap-3"
+      className="flex flex-col items-center gap-4"
       initial={{ opacity: 0, y: 40, scale: 0.85 }}
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ delay, duration: 0.7, type: 'spring', stiffness: 120 }}
     >
-      <div
-        className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 flex items-center justify-center"
+      <motion.div
+        className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 flex items-center justify-center"
         style={{
-          background: 'rgba(255,255,255,0.04)',
+          background: 'linear-gradient(145deg, rgba(212,175,110,0.08) 0%, rgba(255,255,255,0.03) 100%)',
           border: `1px solid ${theme.card.border}`,
-          boxShadow: `0 4px 24px rgba(212,175,110,0.1)`,
+          boxShadow: `0 0 30px rgba(212,175,110,0.12), 0 8px 32px rgba(0,0,0,0.3)`,
         }}
+        animate={{ boxShadow: ['0 0 20px rgba(212,175,110,0.1)', '0 0 40px rgba(212,175,110,0.25)', '0 0 20px rgba(212,175,110,0.1)'] }}
+        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
       >
         <span
-          className="text-3xl sm:text-4xl md:text-5xl font-light tabular-nums"
-          style={{ fontFamily: theme.font.display, color: theme.color.gold }}
+          className="text-4xl sm:text-5xl md:text-6xl font-light tabular-nums"
+          style={{ fontFamily: theme.font.display, color: theme.color.gold, textShadow: '0 0 20px rgba(212,175,110,0.5)' }}
         >
           {String(value).padStart(2, '0')}
         </span>
         {/* Corner accents */}
-        <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2" style={{ borderColor: theme.ornament.solid }} />
-        <div className="absolute top-0 right-0 w-2.5 h-2.5 border-t-2 border-r-2" style={{ borderColor: theme.ornament.solid }} />
-        <div className="absolute bottom-0 left-0 w-2.5 h-2.5 border-b-2 border-l-2" style={{ borderColor: theme.ornament.solid }} />
-        <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2" style={{ borderColor: theme.ornament.solid }} />
-      </div>
-      <span className="text-[11px] tracking-[0.3em] uppercase" style={{ color: theme.color.tagline, fontFamily: theme.font.body }}>
+        <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2" style={{ borderColor: theme.ornament.solid }} />
+        <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2" style={{ borderColor: theme.ornament.solid }} />
+        <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2" style={{ borderColor: theme.ornament.solid }} />
+        <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2" style={{ borderColor: theme.ornament.solid }} />
+      </motion.div>
+      <span className="text-[11px] tracking-[0.35em] uppercase" style={{ color: theme.color.gold, fontFamily: theme.font.body, opacity: 0.75 }}>
         {label}
       </span>
     </motion.div>
@@ -66,11 +68,10 @@ export function DateSection() {
       transition={{ duration: 0.9 }}
     >
       {/* Background image */}
-      <img
-        src={config.sectionImages.date}
-        alt=""
+      <div
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0"
+        style={{ backgroundImage: `url(${config.sectionImages.date})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
       />
       {/* Dark overlay replaces solid bg */}
       <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />

@@ -15,11 +15,10 @@ export function MessageSection() {
       transition={{ duration: 0.9 }}
     >
       {/* Background image */}
-      <img
-        src={config.sectionImages.message}
-        alt=""
+      <div
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0"
+        style={{ backgroundImage: `url(${config.sectionImages.message})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
       />
       {/* Dark overlay replaces solid bg */}
       <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />

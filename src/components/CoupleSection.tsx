@@ -20,10 +20,10 @@ function GoldDust() {
               i % 4 === 0
                 ? "#D4AF6E"
                 : i % 4 === 1
-                ? "#F0D080"
-                : i % 4 === 2
-                ? "#B8924A"
-                : "rgba(212,175,110,0.4)",
+                  ? "#F0D080"
+                  : i % 4 === 2
+                    ? "#B8924A"
+                    : "rgba(212,175,110,0.4)",
           }}
           animate={{ opacity: [0, 0.9, 0], scale: [0, 1.8, 0] }}
           transition={{
@@ -44,7 +44,10 @@ function DiamondDivider() {
     <div className="flex items-center justify-center gap-3 my-4">
       <motion.div
         className="h-px flex-1 max-w-30"
-        style={{ background: "linear-gradient(to right, transparent, rgba(212,175,110,0.6))" }}
+        style={{
+          background:
+            "linear-gradient(to right, transparent, rgba(212,175,110,0.6))",
+        }}
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ delay: 0.9, duration: 0.7 }}
@@ -52,7 +55,12 @@ function DiamondDivider() {
       <motion.div
         initial={{ opacity: 0, rotate: -45, scale: 0 }}
         animate={{ opacity: 1, rotate: 0, scale: 1 }}
-        transition={{ delay: 0.85, duration: 0.6, type: "spring", stiffness: 180 }}
+        transition={{
+          delay: 0.85,
+          duration: 0.6,
+          type: "spring",
+          stiffness: 180,
+        }}
       >
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
           <path
@@ -61,17 +69,16 @@ function DiamondDivider() {
             strokeWidth="1.2"
             fill="rgba(15,37,87,0.08)"
           />
-          <path
-            d="M14 7 L21 14 L14 21 L7 14 Z"
-            fill="#D4AF6E"
-            opacity="0.3"
-          />
+          <path d="M14 7 L21 14 L14 21 L7 14 Z" fill="#D4AF6E" opacity="0.3" />
           <circle cx="14" cy="14" r="2" fill="#D4AF6E" />
         </svg>
       </motion.div>
       <motion.div
         className="h-px flex-1 max-w-30"
-        style={{ background: "linear-gradient(to left, transparent, rgba(212,175,110,0.6))" }}
+        style={{
+          background:
+            "linear-gradient(to left, transparent, rgba(212,175,110,0.6))",
+        }}
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ delay: 0.9, duration: 0.7 }}
@@ -83,13 +90,18 @@ function DiamondDivider() {
 export function CoupleSection() {
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
-
       {/* ── Background image ── */}
       <img
         src={config.sectionImages.couple}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-contain sm:object-cover"
+        style={{
+          objectPosition: "center center",
+          background: "#050E1F",
+          transform: "scale(1.4)",
+          transformOrigin: "center center",
+        }}
       />
 
       {/* ── Navy overlay ── */}
@@ -133,8 +145,18 @@ export function CoupleSection() {
         transition={{ delay: 0.2, duration: 0.7 }}
       >
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <path d="M2 30 L2 2 L30 2" stroke="#D4AF6E" strokeWidth="1.5" opacity="0.5" />
-          <path d="M8 30 L8 8 L30 8" stroke="#D4AF6E" strokeWidth="0.8" opacity="0.25" />
+          <path
+            d="M2 30 L2 2 L30 2"
+            stroke="#D4AF6E"
+            strokeWidth="1.5"
+            opacity="0.5"
+          />
+          <path
+            d="M8 30 L8 8 L30 8"
+            stroke="#D4AF6E"
+            strokeWidth="0.8"
+            opacity="0.25"
+          />
           <circle cx="2" cy="2" r="2" fill="#D4AF6E" opacity="0.6" />
         </svg>
       </motion.div>
@@ -146,8 +168,18 @@ export function CoupleSection() {
         transition={{ delay: 0.3, duration: 0.7 }}
       >
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <path d="M62 30 L62 2 L34 2" stroke="#D4AF6E" strokeWidth="1.5" opacity="0.5" />
-          <path d="M56 30 L56 8 L34 8" stroke="#D4AF6E" strokeWidth="0.8" opacity="0.25" />
+          <path
+            d="M62 30 L62 2 L34 2"
+            stroke="#D4AF6E"
+            strokeWidth="1.5"
+            opacity="0.5"
+          />
+          <path
+            d="M56 30 L56 8 L34 8"
+            stroke="#D4AF6E"
+            strokeWidth="0.8"
+            opacity="0.25"
+          />
           <circle cx="62" cy="2" r="2" fill="#D4AF6E" opacity="0.6" />
         </svg>
       </motion.div>
@@ -159,8 +191,18 @@ export function CoupleSection() {
         transition={{ delay: 0.4, duration: 0.7 }}
       >
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <path d="M2 34 L2 62 L30 62" stroke="#D4AF6E" strokeWidth="1.5" opacity="0.5" />
-          <path d="M8 34 L8 56 L30 56" stroke="#D4AF6E" strokeWidth="0.8" opacity="0.25" />
+          <path
+            d="M2 34 L2 62 L30 62"
+            stroke="#D4AF6E"
+            strokeWidth="1.5"
+            opacity="0.5"
+          />
+          <path
+            d="M8 34 L8 56 L30 56"
+            stroke="#D4AF6E"
+            strokeWidth="0.8"
+            opacity="0.25"
+          />
           <circle cx="2" cy="62" r="2" fill="#D4AF6E" opacity="0.6" />
         </svg>
       </motion.div>
@@ -172,15 +214,24 @@ export function CoupleSection() {
         transition={{ delay: 0.5, duration: 0.7 }}
       >
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <path d="M62 34 L62 62 L34 62" stroke="#D4AF6E" strokeWidth="1.5" opacity="0.5" />
-          <path d="M56 34 L56 56 L34 56" stroke="#D4AF6E" strokeWidth="0.8" opacity="0.25" />
+          <path
+            d="M62 34 L62 62 L34 62"
+            stroke="#D4AF6E"
+            strokeWidth="1.5"
+            opacity="0.5"
+          />
+          <path
+            d="M56 34 L56 56 L34 56"
+            stroke="#D4AF6E"
+            strokeWidth="0.8"
+            opacity="0.25"
+          />
           <circle cx="62" cy="62" r="2" fill="#D4AF6E" opacity="0.6" />
         </svg>
       </motion.div>
 
       {/* ── Main content ── */}
       <div className="relative z-10 text-center px-6 flex flex-col items-center">
-
         {/* Top rule */}
         <motion.div
           className="flex items-center gap-3 mb-6"
@@ -188,9 +239,24 @@ export function CoupleSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.8 }}
         >
-          <div className="h-px w-10 sm:w-16" style={{ background: "linear-gradient(to right, transparent, rgba(212,175,110,0.5))" }} />
-          <div className="w-1 h-1 rounded-full" style={{ background: "#D4AF6E", opacity: 0.5 }} />
-          <div className="h-px w-10 sm:w-16" style={{ background: "linear-gradient(to left, transparent, rgba(212,175,110,0.5))" }} />
+          <div
+            className="h-px w-10 sm:w-16"
+            style={{
+              background:
+                "linear-gradient(to right, transparent, rgba(212,175,110,0.5))",
+            }}
+          />
+          <div
+            className="w-1 h-1 rounded-full"
+            style={{ background: "#D4AF6E", opacity: 0.5 }}
+          />
+          <div
+            className="h-px w-10 sm:w-16"
+            style={{
+              background:
+                "linear-gradient(to left, transparent, rgba(212,175,110,0.5))",
+            }}
+          />
         </motion.div>
 
         {/* Eyebrow */}
@@ -267,9 +333,24 @@ export function CoupleSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.3, duration: 0.8 }}
         >
-          <div className="h-px w-16 sm:w-24" style={{ background: "linear-gradient(to right, transparent, rgba(212,175,110,0.45))" }} />
-          <div className="w-1.5 h-1.5 rotate-45 border" style={{ borderColor: "rgba(212,175,110,0.45)" }} />
-          <div className="h-px w-16 sm:w-24" style={{ background: "linear-gradient(to left, transparent, rgba(212,175,110,0.45))" }} />
+          <div
+            className="h-px w-16 sm:w-24"
+            style={{
+              background:
+                "linear-gradient(to right, transparent, rgba(212,175,110,0.45))",
+            }}
+          />
+          <div
+            className="w-1.5 h-1.5 rotate-45 border"
+            style={{ borderColor: "rgba(212,175,110,0.45)" }}
+          />
+          <div
+            className="h-px w-16 sm:w-24"
+            style={{
+              background:
+                "linear-gradient(to left, transparent, rgba(212,175,110,0.45))",
+            }}
+          />
         </motion.div>
 
         {/* Tagline */}
@@ -328,7 +409,8 @@ export function CoupleSection() {
           style={{
             width: 1,
             height: 40,
-            background: "linear-gradient(to bottom, rgba(212,175,110,0.5), transparent)",
+            background:
+              "linear-gradient(to bottom, rgba(212,175,110,0.5), transparent)",
           }}
           animate={{ scaleY: [1, 1.5, 1], opacity: [0.4, 0.9, 0.4] }}
           transition={{ repeat: Infinity, duration: 2 }}

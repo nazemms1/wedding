@@ -94,11 +94,10 @@ export function GuestbookSection() {
       transition={{ duration: 1 }}
     >
       {/* Background image */}
-      <img
-        src={config.sectionImages.guestbook}
-        alt=""
+      <div
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0"
+        style={{ backgroundImage: `url(${config.sectionImages.guestbook})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
       />
       {/* Dark overlay replaces solid bg */}
       <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
