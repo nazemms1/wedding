@@ -48,8 +48,8 @@ export const theme = {
 
   // ─── Typography ───────────────────────────────────────────────────────────
   font: {
-    display: "'Playfair Display', Georgia, serif",
-    body: "'Lato', system-ui, sans-serif",
+    display: "'Playfair Display', 'Noto Naskh Arabic', Georgia, serif",
+    body: "'Lato', 'Noto Naskh Arabic', system-ui, sans-serif",
   },
 
   // ─── Shared text shadows ──────────────────────────────────────────────────

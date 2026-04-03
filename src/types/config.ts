@@ -42,6 +42,7 @@ export interface SiteConfig {
     date: string
     venue: string
     guestbook: string
+    engagment:string
   }
 }
 

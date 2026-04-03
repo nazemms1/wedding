@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { config } from '../config'
 import { theme } from '../theme'
+import { useLanguage } from '../context/LanguageContext'
 
 interface GuestMessage {
   id: number
@@ -64,6 +65,7 @@ function MessageCard({ msg, index, inView }: { msg: GuestMessage; index: number;
 }
 
 export function GuestbookSection() {
+  const { t } = useLanguage()
   const [ref, inView] = useScrollAnimation()
   const [messages, setMessages] = useState<GuestMessage[]>(SEED_MESSAGES)
   const [name, setName] = useState('')
@@ -182,21 +184,21 @@ export function GuestbookSection() {
             className="text-xs tracking-[0.45em] uppercase mb-5"
             style={{ color: theme.color.gold, fontFamily: theme.font.body }}
           >
-            Leave a Wish
+            {t.leaveAWish}
           </motion.p>
 
           <h3
             className="font-normal mb-4"
             style={{ fontFamily: theme.font.display, fontSize: 'clamp(2rem, 5vw, 3rem)', color: theme.color.goldLight }}
           >
-            Congratulations Book
+            {t.congratsBook}
           </h3>
 
           <p className="text-sm leading-relaxed" style={{ color: theme.color.textMuted, fontWeight: 300, fontFamily: theme.font.body }}>
-            Share your love and well wishes for{' '}
-            <span style={{ color: theme.color.gold }}>{config.couple.partner1}</span>
+            {t.shareWishes}{' '}
+            <span style={{ color: theme.color.gold }}>{t.partner1}</span>
             {' '}&amp;{' '}
-            <span style={{ color: theme.color.goldDark }}>{config.couple.partner2}</span>
+            <span style={{ color: theme.color.goldDark }}>{t.partner2}</span>
           </p>
 
           {/* Diamond ornament */}
@@ -243,13 +245,13 @@ export function GuestbookSection() {
             {/* Name */}
             <div className="flex flex-col gap-2">
               <label className="text-xs tracking-[0.25em] uppercase" style={{ color: theme.color.gold, fontFamily: theme.font.body }}>
-                Your Name
+                {t.yourName}
               </label>
               <input
                 type="text"
                 value={name}
                 onChange={e => setName(e.target.value)}
-                placeholder="e.g. Sarah & Mark"
+                placeholder={t.namePlaceholder}
                 maxLength={60}
                 className="w-full px-4 py-3.5 text-sm outline-none transition-all duration-200"
                 style={{
@@ -268,12 +270,12 @@ export function GuestbookSection() {
             {/* Message */}
             <div className="flex flex-col gap-2">
               <label className="text-xs tracking-[0.25em] uppercase" style={{ color: theme.color.gold, fontFamily: theme.font.body }}>
-                Your Message
+                {t.yourMessage}
               </label>
               <textarea
                 value={message}
                 onChange={e => setMessage(e.target.value)}
-                placeholder="Share your wishes, memories, or a heartfelt note…"
+                placeholder={t.messagePlaceholder}
                 rows={4}
                 maxLength={400}
                 className="w-full px-4 py-3.5 text-sm outline-none transition-all duration-200 resize-none"
@@ -316,7 +318,7 @@ export function GuestbookSection() {
                     transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
                   />
                 ) : (
-                  'Send Wishes'
+                  t.sendWishes
                 )}
               </motion.button>
 
@@ -332,7 +334,7 @@ export function GuestbookSection() {
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={theme.ornament.solid} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
-                    Message sent!
+                    {t.messageSent}
                   </motion.p>
                 )}
               </AnimatePresence>
@@ -350,7 +352,7 @@ export function GuestbookSection() {
               animate={inView ? { opacity: 1 } : {}}
               transition={{ delay: 0.5 }}
             >
-              {messages.length} {messages.length === 1 ? 'Wish' : 'Wishes'} Shared
+              {messages.length} {messages.length === 1 ? t.wishesShared : t.wishesSharedPlural}
             </motion.p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -369,9 +371,9 @@ export function GuestbookSection() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.7, duration: 0.8 }}
         >
-          — <span style={{ color: theme.color.gold }}>{config.couple.partner1}</span>
+          — <span style={{ color: theme.color.gold }}>{t.partner1}</span>
           {' '}&amp;{' '}
-          <span style={{ color: theme.color.goldDark }}>{config.couple.partner2}</span> —
+          <span style={{ color: theme.color.goldDark }}>{t.partner2}</span> —
         </motion.p>
 
         {/* Bottom rule */}

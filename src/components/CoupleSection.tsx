@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { config } from "../config";
+import { useLanguage } from "../context/LanguageContext";
 
 function GoldDust() {
   return (
@@ -88,6 +89,7 @@ function DiamondDivider() {
 }
 
 export function CoupleSection() {
+  const { t } = useLanguage();
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* ── Background image ── */}
@@ -274,7 +276,7 @@ export function CoupleSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.8 }}
         >
-          You are cordially invited
+          {t.cordiallyInvited}
         </motion.p>
 
         {/* Partner 1 name */}
@@ -296,7 +298,7 @@ export function CoupleSection() {
               letterSpacing: "-0.01em",
             }}
           >
-            {config.couple.partner1}
+            {t.partner1}
           </h1>
         </motion.div>
 
@@ -322,7 +324,7 @@ export function CoupleSection() {
               letterSpacing: "-0.01em",
             }}
           >
-            {config.couple.partner2}
+            {t.partner2}
           </h1>
         </motion.div>
 
@@ -367,7 +369,7 @@ export function CoupleSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.45, duration: 0.8 }}
         >
-          {config.couple.tagline}
+          {t.tagline}
         </motion.p>
 
         {/* Date */}
@@ -383,7 +385,7 @@ export function CoupleSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.65, duration: 0.8 }}
         >
-          {config.event.displayDate}
+          {t.displayDate}
         </motion.p>
       </div>
 
@@ -403,7 +405,7 @@ export function CoupleSection() {
             fontFamily: "'Lato', system-ui, sans-serif",
           }}
         >
-          Scroll
+          {t.scrollDown}
         </span>
         <motion.div
           style={{

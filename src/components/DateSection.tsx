@@ -3,6 +3,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { useCountdown } from '../hooks/useCountdown'
 import { config } from '../config'
 import { theme } from '../theme'
+import { useLanguage } from '../context/LanguageContext'
 
 interface CountdownBoxProps {
   value: number
@@ -49,14 +50,15 @@ function CountdownBox({ value, label, delay, inView }: CountdownBoxProps) {
 }
 
 export function DateSection() {
+  const { t } = useLanguage()
   const [ref, inView] = useScrollAnimation()
   const { days, hours, minutes, seconds, isPast } = useCountdown(config.event.weddingDate)
 
   const boxes = [
-    { value: days,    label: 'Days' },
-    { value: hours,   label: 'Hours' },
-    { value: minutes, label: 'Minutes' },
-    { value: seconds, label: 'Seconds' },
+    { value: days,    label: t.days },
+    { value: hours,   label: t.hours },
+    { value: minutes, label: t.minutes },
+    { value: seconds, label: t.seconds },
   ]
 
   return (
@@ -173,7 +175,7 @@ export function DateSection() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.2, duration: 0.7 }}
         >
-          Save the Date
+          {t.saveTheDate}
         </motion.p>
 
         <motion.h3
@@ -183,7 +185,7 @@ export function DateSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          {config.event.displayDate}
+          {t.displayDate}
         </motion.h3>
 
         <motion.p
@@ -193,19 +195,100 @@ export function DateSection() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.4, duration: 0.7 }}
         >
-          {config.event.displayTime}
+          {t.displayTime}
         </motion.p>
 
         {isPast ? (
-          <motion.p
-            className="text-2xl italic"
-            style={{ fontFamily: theme.font.display, color: theme.color.gold }}
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.4 }}
-          >
-            We are now married — thank you for celebrating with us!
-          </motion.p>
+          <div className="flex flex-col items-center gap-6">
+
+            {/* Animated rings icon */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: 0.3, duration: 0.9, type: 'spring', stiffness: 100 }}
+            >
+              <svg width="72" height="48" viewBox="0 0 72 48" fill="none" aria-hidden="true">
+                <circle cx="24" cy="24" r="18" stroke={theme.color.gold} strokeWidth="2.5" fill="none" opacity="0.9"/>
+                <circle cx="48" cy="24" r="18" stroke={theme.color.goldLight} strokeWidth="2.5" fill="none" opacity="0.9"/>
+                <motion.circle cx="24" cy="24" r="18" stroke={theme.color.gold} strokeWidth="1" fill="none"
+                  animate={{ r: [18, 24, 18], opacity: [0.4, 0, 0.4] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: 'easeOut' }}
+                />
+                <motion.circle cx="48" cy="24" r="18" stroke={theme.color.goldLight} strokeWidth="1" fill="none"
+                  animate={{ r: [18, 24, 18], opacity: [0.4, 0, 0.4] }}
+                  transition={{ duration: 2.5, repeat: Infinity, ease: 'easeOut', delay: 0.4 }}
+                />
+              </svg>
+            </motion.div>
+
+            {/* "We Are Married" eyebrow */}
+            <motion.p
+              className="text-xs tracking-[0.45em] uppercase"
+              style={{ color: theme.color.gold, fontFamily: theme.font.body }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.45, duration: 0.7 }}
+            >
+              {t.weAreMarried}
+            </motion.p>
+
+            {/* Main congratulations heading */}
+            <motion.h3
+              className="font-normal text-center"
+              style={{
+                fontFamily: theme.font.display,
+                fontSize: 'clamp(2rem, 6vw, 4rem)',
+                color: theme.color.goldLight,
+                textShadow: theme.shadow.name,
+                lineHeight: 1.2,
+              }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.55, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            >
+              {t.congratsHeading}
+            </motion.h3>
+
+            {/* Divider */}
+            <motion.div
+              className="flex items-center gap-3"
+              initial={{ scaleX: 0 }}
+              animate={inView ? { scaleX: 1 } : {}}
+              transition={{ delay: 0.75, duration: 0.8 }}
+            >
+              <div className="h-px w-16 sm:w-24" style={{ background: `linear-gradient(to right, transparent, ${theme.ornament.mid})` }} />
+              <motion.div
+                className="w-2 h-2 rotate-45"
+                style={{ background: theme.color.gold }}
+                animate={{ scale: [1, 1.4, 1], opacity: [0.6, 1, 0.6] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              />
+              <div className="h-px w-16 sm:w-24" style={{ background: `linear-gradient(to left, transparent, ${theme.ornament.mid})` }} />
+            </motion.div>
+
+            {/* Subtitle */}
+            <motion.p
+              className="text-base md:text-lg leading-relaxed text-center max-w-lg"
+              style={{ color: theme.color.textOnDark, fontWeight: 300, fontFamily: theme.font.body }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.85, duration: 0.8 }}
+            >
+              {t.congratsSubtitle}
+            </motion.p>
+
+            {/* Thank you tagline */}
+            <motion.p
+              className="text-sm italic"
+              style={{ color: theme.color.tagline, fontFamily: theme.font.display }}
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ delay: 1.05, duration: 0.8 }}
+            >
+              {t.congratsTagline}
+            </motion.p>
+
+          </div>
         ) : (
           <div className="flex items-start justify-center gap-3 sm:gap-5 md:gap-7 flex-wrap">
             {boxes.map((box, i) => (

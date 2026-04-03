@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -30,6 +31,49 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* ── Arabic (RTL) overrides ─────────────────────────────────────────────── */
+html[dir="rtl"] body,
+html[dir="rtl"] * {
+  font-family: 'Noto Naskh Arabic', serif !important;
+  /* Kill all letter-spacing — it destroys Arabic readability */
+  letter-spacing: 0 !important;
+}
+
+/* Eyebrow labels: were 0.65–0.68rem in English, bump to 1rem in Arabic */
+html[dir="rtl"] .text-xs {
+  font-size: 1rem !important;
+  text-transform: none !important;
+}
+
+/* Small tracking labels rendered via inline style (CoupleSection, VenueSection) */
+html[dir="rtl"] [style*="fontSize: \"0.68rem\""],
+html[dir="rtl"] [style*="fontSize: \"0.65rem\""],
+html[dir="rtl"] [style*="font-size: 0.65rem"],
+html[dir="rtl"] [style*="font-size: 0.68rem"] {
+  font-size: 1rem !important;
+}
+
+/* Envelope tiny labels (clamp(7px, ...)) */
+html[dir="rtl"] [style*="clamp(7px"] {
+  font-size: clamp(13px, 2.5vw, 16px) !important;
+}
+html[dir="rtl"] [style*="clamp(8px"] {
+  font-size: clamp(13px, 2vw, 15px) !important;
+}
+html[dir="rtl"] [style*="clamp(11px"] {
+  font-size: clamp(14px, 2.5vw, 17px) !important;
+}
+
+/* Section body text: slightly larger for Arabic */
+html[dir="rtl"] .text-sm  { font-size: 1.05rem !important; }
+html[dir="rtl"] .text-base { font-size: 1.15rem !important; }
+html[dir="rtl"] .text-lg  { font-size: 1.25rem !important; }
+html[dir="rtl"] .text-xl  { font-size: 1.35rem !important; }
+
+/* RTL text alignment */
+html[dir="rtl"] .text-center { text-align: center !important; }
+html[dir="rtl"] #root { text-align: right; }
 
 body {
   font-family: var(--font-body);

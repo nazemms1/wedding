@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { config } from "../config";
 import { theme } from "../theme";
+import { useLanguage } from "../context/LanguageContext";
+import indilaSound from "../assets/sound/Indila.m4a";
 
 interface EnvelopeIntroProps {
   onOpen: () => void;
@@ -36,6 +38,7 @@ function Particle({ i }: { i: number }) {
 }
 
 export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
+  const { t } = useLanguage();
   const [stage, setStage] = useState<
     "idle" | "splitting" | "reveal" | "exiting"
   >("idle");
@@ -49,6 +52,9 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
 
   function handleClick() {
     if (stage !== "idle") return;
+    const audio = new Audio(indilaSound);
+    audio.volume = 0.7;
+    audio.play().catch(() => {/* autoplay blocked, silently skip */});
     setStage("splitting");
     setTimeout(() => setStage("reveal"), 700);
     setTimeout(() => setStage("exiting"), 3200);
@@ -205,19 +211,19 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   letterSpacing: "0.02em",
                 }}
               >
-                {config.couple.partner1}
+                {t.partner1}
               </p>
               <p
                 style={{
                   fontFamily: theme.font.body,
-                  fontSize: "clamp(7px, 1.5vw, 9px)",
+                  // fontSize: "clamp(7px, 1.5vw, 9px)",
                   letterSpacing: "0.4em",
                   textTransform: "uppercase",
-                  color: theme.color.tagline,
+                  color: theme.color.goldLight,
                   marginTop: 6,
                 }}
               >
-                &amp; {config.couple.partner2}
+                &amp; {t.partner2}
               </p>
               <div
                 style={{
@@ -290,7 +296,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   letterSpacing: "0.08em",
                 }}
               >
-                {config.event.displayDate}
+                {t.displayDate}
               </p>
               <div
                 style={{
@@ -309,7 +315,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   color: theme.color.tagline,
                 }}
               >
-                {config.venue.name}
+                {t.venueName}
               </p>
               <div
                 style={{
@@ -368,7 +374,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
             <motion.div
               className="absolute"
               style={{
-                left: "50%",
+                left: "45%",
                 top: "50%",
                 transform: "translate(-50%, -50%)",
                 zIndex: 20,
@@ -439,7 +445,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                     fontWeight: 600,
                   }}
                 >
-                  J&amp;B
+                  {t.partner1.charAt(0)}&amp;{t.partner2.charAt(0)}
                 </span>
               </div>
               {/* Shine */}
@@ -561,7 +567,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                     marginBottom: 14,
                   }}
                 >
-                  You are cordially invited
+                  {t.cordiallyInvited}
                 </motion.p>
 
                 <motion.div
@@ -589,7 +595,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                     letterSpacing: "0.02em",
                   }}
                 >
-                  {config.couple.partner1}
+                  {t.partner1}
                 </motion.p>
 
                 <motion.p
@@ -604,7 +610,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   style={{
                     fontFamily: theme.font.display,
                     fontSize: "clamp(20px, 5vw, 34px)",
-                    color: theme.color.gold,
+                    color: theme.color.goldLight,
                     fontStyle: "italic",
                     margin: "8px 0",
                   }}
@@ -625,7 +631,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                     letterSpacing: "0.02em",
                   }}
                 >
-                  {config.couple.partner2}
+                  {t.partner2}
                 </motion.p>
 
                 <motion.div
@@ -653,7 +659,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                     marginBottom: 8,
                   }}
                 >
-                  {config.event.displayDate}
+                  {t.displayDate}
                 </motion.p>
 
                 <motion.p
@@ -669,7 +675,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                     marginBottom: 28,
                   }}
                 >
-                  {config.event.displayTime} · {config.venue.name}
+                  {t.displayTime} · {t.venueName}
                 </motion.p>
               </div>
             </motion.div>
@@ -696,7 +702,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   color: theme.color.subtle,
                 }}
               >
-                {config.couple.partner1} &amp; {config.couple.partner2}
+                {t.partner1} &amp; {t.partner2}
               </p>
             </motion.div>
           )}
@@ -722,7 +728,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   color: theme.color.subtle,
                 }}
               >
-                {config.event.displayDate}
+                {t.displayDate}
               </p>
             </motion.div>
           )}
@@ -771,7 +777,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
               animate={{ opacity: [0.4, 0.85, 0.4] }}
               transition={{ duration: 2.4, repeat: Infinity }}
             >
-              tap to open
+              {t.tapToOpen}
             </motion.p>
           </motion.div>
         )}
@@ -795,7 +801,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
             exit={{ opacity: 0 }}
             transition={{ delay: 0.5, duration: 0.7 }}
           >
-            You are cordially invited
+            {t.cordiallyInvited}
           </motion.p>
         )}
       </AnimatePresence>

@@ -5,7 +5,7 @@ import { CoupleSection } from "./components/CoupleSection";
 import { MessageSection } from "./components/MessageSection";
 import { DateSection } from "./components/DateSection";
 import { VenueSection } from "./components/VenueSection";
-
+import { EngagementTimeline } from "./components/EngagementTimeline";
 import { GuestbookSection } from "./components/GuestbookSection";
 import { BackToTop } from "./components/BackToTop";
 import { FloatingHearts } from "./components/FloatingHearts";
@@ -33,13 +33,16 @@ function App() {
           >
             <CoupleSection />
             <SectionDivider />
+            <EngagementTimeline />
+            <SectionDivider />
+
             <MessageSection />
             <SectionDivider />
             <DateSection />
             <SectionDivider />
             <VenueSection />
+
             <SectionDivider />
-            {/* <ClosingSection /> */}
             <GuestbookSection />
           </motion.main>
         )}

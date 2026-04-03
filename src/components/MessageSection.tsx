@@ -2,8 +2,10 @@ import { motion } from 'framer-motion'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { config } from '../config'
 import { theme } from '../theme'
+import { useLanguage } from '../context/LanguageContext'
 
 export function MessageSection() {
+  const { t } = useLanguage()
   const [ref, inView] = useScrollAnimation()
 
   return (
@@ -114,11 +116,11 @@ export function MessageSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2, duration: 0.7 }}
         >
-          A Message From the Couple
+          {t.eyebrow}
         </motion.p>
 
         {/* Paragraphs */}
-        {config.message.paragraphs.map((para, i) => (
+        {t.messageParagraphs.map((para, i) => (
           <motion.p
             key={i}
             className="text-lg md:text-xl leading-relaxed mb-6 last:mb-0"
@@ -167,7 +169,7 @@ export function MessageSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.9, duration: 0.8 }}
         >
-          {config.message.signature}
+          {t.signature}
         </motion.p>
 
         {/* Bottom rule */}

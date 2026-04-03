@@ -74,5 +74,6 @@ export const config: SiteConfig = {
     venue: "/wedding/venue.jpeg",
     /** Guestbook section — couple hands / ring detail */
     guestbook: "/wedding/guestbook.jpeg",
+    engagment: "/wedding/B-J.jpeg",
   },
 };

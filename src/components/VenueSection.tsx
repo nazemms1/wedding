@@ -2,8 +2,10 @@ import { motion } from 'framer-motion'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import { config } from '../config'
 import { theme } from '../theme'
+import { useLanguage } from '../context/LanguageContext'
 
 export function VenueSection() {
+  const { t } = useLanguage()
   const [ref, inView] = useScrollAnimation()
 
   return (
@@ -104,7 +106,7 @@ export function VenueSection() {
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.2, duration: 0.7 }}
         >
-          The Celebration
+          {t.locationEyebrow}
         </motion.p>
 
         <motion.h3
@@ -114,7 +116,7 @@ export function VenueSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          {config.venue.name}
+          {t.venueName}
         </motion.h3>
 
         {/* Address */}
@@ -129,7 +131,7 @@ export function VenueSection() {
             <circle cx="12" cy="10" r="3"/>
           </svg>
           <address className="not-italic text-base tracking-wide" style={{ color: theme.color.textMuted, fontWeight: 300, fontFamily: theme.font.body }}>
-            {config.venue.address}
+            {t.venueAddress}
           </address>
         </motion.div>
 
@@ -159,7 +161,7 @@ export function VenueSection() {
                 <circle cx="12" cy="10" r="3"/>
               </svg>
               <span style={{ fontFamily: theme.font.body, fontSize: '0.65rem', letterSpacing: '0.35em', textTransform: 'uppercase', color: theme.color.tagline }}>
-                {config.venue.address}
+                {t.venueAddress}
               </span>
             </div>
             <motion.a
@@ -180,7 +182,7 @@ export function VenueSection() {
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                 <circle cx="12" cy="10" r="3"/>
               </svg>
-              Directions
+              {t.getDirections}
             </motion.a>
           </div>
 
@@ -188,7 +190,7 @@ export function VenueSection() {
           <div className="relative w-full" style={{ paddingBottom: '52%', minHeight: '300px' }}>
             <iframe
               src={config.venue.googleMapsEmbedUrl}
-              title={`Map to ${config.venue.name}`}
+              title={`Map to ${t.venueName}`}
               className="absolute inset-0 w-full h-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
