@@ -71,8 +71,7 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
       }
       transition={{ duration: 0.95, ease: "easeInOut" }}
     >
-      {/* Video */}
-      <video
+       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
@@ -84,9 +83,7 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
         onError={() => setVideoFailed(true)}
       />
 
-      {/* Fallback */}
-
-      {/* Multi-layer overlay */}
+      
       <div
         className="absolute inset-0 bg-black/55"
         style={{
@@ -96,8 +93,7 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
       />
       <div className="absolute inset-0 bg-black/20" />
 
-      {/* Animated aurora glow */}
-      <motion.div
+       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{
           background: theme.bg.glow,
@@ -108,8 +104,7 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
 
       <Sparkles />
 
-      {/* Animated border lines */}
-      <motion.div
+       <motion.div
         className="absolute top-6 left-6 w-16 h-16 border-t-2 border-l-2"
         style={{ borderColor: theme.ornament.mid }}
         initial={{ opacity: 0, scale: 0 }}
@@ -138,8 +133,7 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
         transition={{ delay: 0.8, duration: 0.6 }}
       />
 
-      {/* Center content */}
-      <div className="relative z-10 text-center px-6">
+       <div className="relative z-10 text-center px-6">
         <motion.p
           className="text-xs tracking-[0.5em] uppercase mb-8"
           style={{ color: theme.color.tagline }}
@@ -150,8 +144,7 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
           You are cordially invited
         </motion.p>
 
-        {/* Bride name — sky blue */}
-        <motion.div
+         <motion.div
           initial={{ opacity: 0, x: -60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.75, duration: 0.9, ease: "easeOut" }}
@@ -168,8 +161,7 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
           </h1>
         </motion.div>
 
-        {/* Animated ampersand */}
-        <motion.div
+         <motion.div
           className="my-2 flex items-center justify-center gap-4"
           initial={{ opacity: 0, scale: 0.3, rotate: -20 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -210,8 +202,7 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
           />
         </motion.div>
 
-        {/* Groom name — deep navy */}
-        <motion.div
+         <motion.div
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 1.25, duration: 0.9, ease: "easeOut" }}
@@ -228,8 +219,7 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
           </h1>
         </motion.div>
 
-        {/* Enter button */}
-        <motion.button
+         <motion.button
           onClick={handleEnter}
           className="group relative overflow-hidden px-10 py-4 text-sm tracking-[0.25em] uppercase cursor-pointer"
           style={{
@@ -267,8 +257,7 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
         </motion.button>
       </div>
 
-      {/* Skip button */}
-      <motion.button
+       <motion.button
         onClick={handleEnter}
         className="absolute top-6 right-6 z-20 text-white/40 text-xs tracking-widest uppercase hover:text-white/70 transition-colors duration-200 cursor-pointer"
         initial={{ opacity: 0 }}
@@ -278,8 +267,7 @@ export function HeroSection({ onEnter }: HeroSectionProps) {
         Skip
       </motion.button>
 
-      {/* Scroll indicator */}
-      <motion.div
+       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

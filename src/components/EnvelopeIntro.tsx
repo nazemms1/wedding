@@ -66,8 +66,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
   const revealed = stage === "reveal" || stage === "exiting";
   const exiting = stage === "exiting";
 
-  // Card surface — dark navy with subtle gold sheen
-  const cardSurface =
+   const cardSurface =
     "linear-gradient(160deg, #0A1A3A 0%, #0D1E45 50%, #081530 100%)";
 
   return (
@@ -83,26 +82,25 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Background image */}
+      
       <img
         src={config.sectionImages.envelope}
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      {/* Dark overlay */}
+    
       <div
         className="absolute inset-0"
         style={{ background: theme.bg.section, opacity: 0.88 }}
       />
 
-      {/* Vignette */}
+    
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ background: theme.bg.vignette }}
       />
-
-      {/* Ambient gold glow */}
+ 
       <motion.div
         className="absolute pointer-events-none"
         style={{
@@ -119,7 +117,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Burst of light when splitting */}
+      
       <AnimatePresence>
         {splitting && (
           <motion.div
@@ -140,14 +138,14 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
         )}
       </AnimatePresence>
 
-      {/* Particles */}
+       
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {Array.from({ length: 36 }).map((_, i) => (
           <Particle key={i} i={i} />
         ))}
       </div>
 
-      {/* ─── THE CARD ─── */}
+      
       <div
         className="relative"
         style={{
@@ -156,7 +154,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           perspective: 1600,
         }}
       >
-        {/* ── LEFT HALF ── */}
+    
         <motion.div
           className="absolute top-0 left-0 overflow-hidden"
           style={{
@@ -178,14 +176,14 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
               boxShadow: splitting ? "-8px 0 40px rgba(0,0,0,0.6)" : "none",
             }}
           />
-          {/* Paper grain */}
+       
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 22px, rgba(212,175,110,0.015) 22px, rgba(212,175,110,0.015) 23px)`,
             }}
           />
-          {/* Left half content */}
+           
           <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
             <div
               style={{
@@ -234,7 +232,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
               />
             </div>
           </div>
-          {/* Center fold shadow */}
+        
           <div
             className="absolute top-0 right-0 bottom-0"
             style={{
@@ -245,7 +243,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           />
         </motion.div>
 
-        {/* ── RIGHT HALF ── */}
+      
         <motion.div
           className="absolute top-0 right-0 overflow-hidden"
           style={{
@@ -263,15 +261,13 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
             className="absolute inset-0"
             style={{ background: cardSurface, borderRadius: "0 6px 6px 0" }}
           />
-          {/* Paper grain */}
-          <div
+           <div
             className="absolute inset-0 pointer-events-none"
             style={{
               backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 22px, rgba(212,175,110,0.015) 22px, rgba(212,175,110,0.015) 23px)`,
             }}
           />
-          {/* Right half content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
+           <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
             <div
               style={{
                 display: "flex",
@@ -327,8 +323,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
               />
             </div>
           </div>
-          {/* Center fold shadow */}
-          <div
+           <div
             className="absolute top-0 left-0 bottom-0"
             style={{
               width: 18,
@@ -338,8 +333,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           />
         </motion.div>
 
-        {/* ── CARD OUTER BORDER ── */}
-        <motion.div
+         <motion.div
           className="absolute inset-0 pointer-events-none"
           style={{ borderRadius: 6, zIndex: 11 }}
           animate={
@@ -356,7 +350,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           transition={{ duration: 0.35 }}
         />
 
-        {/* ── CENTER FOLD LINE ── */}
+         
         <div
           className="absolute top-0 bottom-0 pointer-events-none"
           style={{
@@ -368,8 +362,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           }}
         />
 
-        {/* ── WAX SEAL ── */}
-        <AnimatePresence>
+         <AnimatePresence>
           {stage === "idle" && (
             <motion.div
               className="absolute"
@@ -392,8 +385,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                 damping: 12,
               }}
             >
-              {/* Outer wax body — gold */}
-              <div
+               <div
                 style={{
                   position: "absolute",
                   inset: 0,
@@ -406,8 +398,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   ].join(", "),
                 }}
               />
-              {/* Ring */}
-              <div
+               <div
                 style={{
                   position: "absolute",
                   inset: 5,
@@ -415,8 +406,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   border: "1px solid rgba(255,255,255,0.2)",
                 }}
               />
-              {/* Inner disc */}
-              <div
+               <div
                 style={{
                   position: "absolute",
                   inset: 10,
@@ -425,8 +415,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   border: "1px solid rgba(255,255,255,0.1)",
                 }}
               />
-              {/* Initials */}
-              <div
+               <div
                 style={{
                   position: "absolute",
                   inset: 0,
@@ -448,8 +437,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   {t.partner1.charAt(0)}&amp;{t.partner2.charAt(0)}
                 </span>
               </div>
-              {/* Shine */}
-              <div
+               <div
                 style={{
                   position: "absolute",
                   top: 8,
@@ -461,8 +449,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                   transform: "rotate(-20deg)",
                 }}
               />
-              {/* Pulse ring */}
-              <motion.div
+               <motion.div
                 style={{
                   position: "absolute",
                   inset: -5,
@@ -480,8 +467,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           )}
         </AnimatePresence>
 
-        {/* ── REVEALED INVITATION ── */}
-        <AnimatePresence>
+         <AnimatePresence>
           {revealed && (
             <motion.div
               className="absolute inset-0"
@@ -499,8 +485,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             >
-              {/* Inner border */}
-              <div
+               <div
                 style={{
                   position: "absolute",
                   inset: 14,
@@ -510,8 +495,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                 }}
               />
 
-              {/* Corner ornaments — rotated diamonds */}
-              {[
+               {[
                 { top: 18, left: 18 },
                 { top: 18, right: 18 },
                 { bottom: 18, left: 18 },
@@ -532,8 +516,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                 />
               ))}
 
-              {/* Dot pattern */}
-              <div
+               <div
                 style={{
                   position: "absolute",
                   inset: 0,
@@ -544,8 +527,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                 }}
               />
 
-              {/* Content */}
-              <div
+               <div
                 style={{
                   display: "flex",
                   flexDirection: "column",
@@ -682,8 +664,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           )}
         </AnimatePresence>
 
-        {/* ── TOP LABEL (idle) ── */}
-        <AnimatePresence>
+         <AnimatePresence>
           {stage === "idle" && (
             <motion.div
               className="absolute left-0 right-0 flex flex-col items-center"
@@ -708,8 +689,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           )}
         </AnimatePresence>
 
-        {/* ── BOTTOM LABEL (idle) ── */}
-        <AnimatePresence>
+         <AnimatePresence>
           {stage === "idle" && (
             <motion.div
               className="absolute left-0 right-0 flex flex-col items-center"
@@ -735,8 +715,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
         </AnimatePresence>
       </div>
 
-      {/* ── Tap hint ── */}
-      <AnimatePresence>
+       <AnimatePresence>
         {stage === "idle" && showHint && (
           <motion.div
             className="absolute flex flex-col items-center gap-2"
@@ -783,8 +762,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
         )}
       </AnimatePresence>
 
-      {/* ── "You are cordially invited" above card ── */}
-      <AnimatePresence>
+       <AnimatePresence>
         {stage === "idle" && (
           <motion.p
             className="absolute"

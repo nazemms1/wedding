@@ -36,8 +36,7 @@ function CountdownBox({ value, label, delay, inView }: CountdownBoxProps) {
         >
           {String(value).padStart(2, '0')}
         </span>
-        {/* Corner accents */}
-        <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2" style={{ borderColor: theme.ornament.solid }} />
+         <div className="absolute top-0 left-0 w-3.5 h-3.5 border-t-2 border-l-2" style={{ borderColor: theme.ornament.solid }} />
         <div className="absolute top-0 right-0 w-3.5 h-3.5 border-t-2 border-r-2" style={{ borderColor: theme.ornament.solid }} />
         <div className="absolute bottom-0 left-0 w-3.5 h-3.5 border-b-2 border-l-2" style={{ borderColor: theme.ornament.solid }} />
         <div className="absolute bottom-0 right-0 w-3.5 h-3.5 border-b-2 border-r-2" style={{ borderColor: theme.ornament.solid }} />
@@ -69,28 +68,23 @@ export function DateSection() {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.9 }}
     >
-      {/* Background image */}
-      <div
+       <div
         aria-hidden="true"
         className="absolute inset-0"
         style={{ backgroundImage: `url(${config.sectionImages.date})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
       />
-      {/* Dark overlay replaces solid bg */}
-      <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
+       <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
 
-      {/* Vignette */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: theme.bg.vignette }} />
+       <div className="absolute inset-0 pointer-events-none" style={{ background: theme.bg.vignette }} />
 
-      {/* Gold glow */}
-      <motion.div
+       <motion.div
         className="absolute pointer-events-none"
         style={{ inset: 0, background: theme.bg.glow }}
         animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.1, 1] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      {/* Gold dust particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         {Array.from({ length: 24 }).map((_, i) => (
           <motion.div
             key={i}
@@ -108,8 +102,7 @@ export function DateSection() {
         ))}
       </div>
 
-      {/* Orbiting rings */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+       <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
         <motion.div
           className="w-[700px] h-[700px] rounded-full"
           style={{ border: '1px solid rgba(212,175,110,0.06)' }}
@@ -124,8 +117,7 @@ export function DateSection() {
         />
       </div>
 
-      {/* Corner ornaments */}
-      <motion.div className="absolute top-5 left-5" initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.2, duration: 0.7 }}>
+       <motion.div className="absolute top-5 left-5" initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.2, duration: 0.7 }}>
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
           <path d="M2 30 L2 2 L30 2" stroke={theme.ornament.solid} strokeWidth="1.5" opacity={theme.corner.strokeOpacity} />
           <path d="M8 30 L8 8 L30 8" stroke={theme.ornament.solid} strokeWidth="0.8" opacity={theme.corner.innerStrokeOpacity} />
@@ -156,7 +148,7 @@ export function DateSection() {
 
       <div className="relative z-10 max-w-3xl mx-auto">
 
-        {/* Top rule */}
+       
         <motion.div
           className="flex items-center justify-center gap-3 mb-8"
           initial={{ opacity: 0, y: -10 }}
@@ -201,8 +193,7 @@ export function DateSection() {
         {isPast ? (
           <div className="flex flex-col items-center gap-6">
 
-            {/* Animated rings icon */}
-            <motion.div
+             <motion.div
               initial={{ opacity: 0, scale: 0.5 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 0.3, duration: 0.9, type: 'spring', stiffness: 100 }}
@@ -221,8 +212,7 @@ export function DateSection() {
               </svg>
             </motion.div>
 
-            {/* "We Are Married" eyebrow */}
-            <motion.p
+             <motion.p
               className="text-xs tracking-[0.45em] uppercase"
               style={{ color: theme.color.gold, fontFamily: theme.font.body }}
               initial={{ opacity: 0, y: 10 }}
@@ -232,8 +222,7 @@ export function DateSection() {
               {t.weAreMarried}
             </motion.p>
 
-            {/* Main congratulations heading */}
-            <motion.h3
+             <motion.h3
               className="font-normal text-center"
               style={{
                 fontFamily: theme.font.display,
@@ -249,8 +238,7 @@ export function DateSection() {
               {t.congratsHeading}
             </motion.h3>
 
-            {/* Divider */}
-            <motion.div
+             <motion.div
               className="flex items-center gap-3"
               initial={{ scaleX: 0 }}
               animate={inView ? { scaleX: 1 } : {}}
@@ -266,8 +254,7 @@ export function DateSection() {
               <div className="h-px w-16 sm:w-24" style={{ background: `linear-gradient(to left, transparent, ${theme.ornament.mid})` }} />
             </motion.div>
 
-            {/* Subtitle */}
-            <motion.p
+             <motion.p
               className="text-base md:text-lg leading-relaxed text-center max-w-lg"
               style={{ color: theme.color.textOnDark, fontWeight: 300, fontFamily: theme.font.body }}
               initial={{ opacity: 0, y: 16 }}
@@ -277,8 +264,7 @@ export function DateSection() {
               {t.congratsSubtitle}
             </motion.p>
 
-            {/* Thank you tagline */}
-            <motion.p
+             <motion.p
               className="text-sm italic"
               style={{ color: theme.color.tagline, fontFamily: theme.font.display }}
               initial={{ opacity: 0 }}
@@ -315,8 +301,7 @@ export function DateSection() {
           </div>
         )}
 
-        {/* Bottom rule */}
-        <motion.div
+         <motion.div
           className="flex items-center justify-center gap-3 mt-14"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}

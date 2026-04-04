@@ -62,18 +62,12 @@ export const config: SiteConfig = {
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1920&q=80",
   },
   sectionImages: {
-    /** Envelope intro — soft bokeh garden / outdoor ceremony */
-    envelope: "/wedding/envelope.jpeg",
-    /** Couple section — romantic bokeh florals */
-    couple: "/wedding/wedding-ring.jpeg",
-    /** Message section — romantic blurred bokeh / soft florals */
-    message: "/wedding/message.jpeg",
-    /** Date section — outdoor ceremony chairs */
-    date: "/wedding/date.jpeg",
-    /** Venue section — grand ballroom */
-    venue: "/wedding/venue.jpeg",
-    /** Guestbook section — couple hands / ring detail */
-    guestbook: "/wedding/guestbook.jpeg",
+     envelope: "/wedding/envelope.jpeg",
+     couple: "/wedding/wedding-ring.jpeg",
+     message: "/wedding/message.jpeg",
+     date: "/wedding/date.jpeg",
+     venue: "/wedding/venue.jpeg",
+     guestbook: "/wedding/guestbook.jpeg",
     engagment: "/wedding/B-J.jpeg",
   },
 };

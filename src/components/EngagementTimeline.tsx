@@ -19,7 +19,7 @@ export function EngagementTimeline() {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.9 }}
     >
-      {/* Background image */}
+    
       <div
         aria-hidden="true"
         className="absolute inset-0"
@@ -30,26 +30,22 @@ export function EngagementTimeline() {
           backgroundAttachment: "fixed",
         }}
       />
-      {/* Dark overlay */}
-      <div
+       <div
         className="absolute inset-0"
         style={{ background: theme.bg.section, opacity: 0.92 }}
       />
-      {/* Vignette */}
-      <div
+       <div
         className="absolute inset-0 pointer-events-none"
         style={{ background: theme.bg.vignette }}
       />
-      {/* Gold glow */}
-      <motion.div
+       <motion.div
         className="absolute pointer-events-none"
         style={{ inset: 0, background: theme.bg.glow }}
         animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.1, 1] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Gold dust particles */}
-      <div
+       <div
         className="absolute inset-0 overflow-hidden pointer-events-none"
         aria-hidden="true"
       >
@@ -75,8 +71,7 @@ export function EngagementTimeline() {
         ))}
       </div>
 
-      {/* Corner ornaments */}
-      <motion.div
+       <motion.div
         className="absolute top-5 left-5"
         initial={{ opacity: 0, scale: 0 }}
         animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -190,9 +185,9 @@ export function EngagementTimeline() {
       </motion.div>
 
       <div className="relative z-10 max-w-3xl mx-auto">
-        {/* Header */}
+       
         <div className="text-center mb-20">
-          {/* Top rule */}
+          
           <motion.div
             className="flex items-center justify-center gap-3 mb-8"
             initial={{ opacity: 0, y: -10 }}
@@ -256,9 +251,8 @@ export function EngagementTimeline() {
           </motion.p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
+         <div className="relative">
+          
           <motion.div
             className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px"
             style={{
@@ -319,7 +313,7 @@ export function EngagementTimeline() {
                     </motion.div>
                   </div>
 
-                  {/* Right side */}
+                
                   <div
                     className={`w-1/2 ${isLeft ? "pl-10" : "pr-10 text-end"}`}
                   >
@@ -331,7 +325,7 @@ export function EngagementTimeline() {
           </div>
         </div>
 
-        {/* Bottom rule */}
+      
         <motion.div
           className="flex items-center justify-center gap-3 mt-20"
           initial={{ opacity: 0 }}

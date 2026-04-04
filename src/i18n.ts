@@ -2,8 +2,7 @@ export type Lang = 'ar' | 'en'
 
 export const translations = {
   ar: {
-    // Names & dates (config overrides)
-    partner1: 'جودي',
+     partner1: 'جودي',
     partner2: 'بشر',
     tagline: 'نحتفل بزفافنا',
     displayDate: 'الأحد، ٣ مايو ٢٠٢٦',
@@ -11,15 +10,12 @@ export const translations = {
     venueName: 'قاعة وردة الكبرى',
     venueAddress: '٢٤٥ طريق الأزهار، بيفرلي هيلز',
 
-    // Envelope intro
-    cordiallyInvited: 'يسعدنا دعوتكم',
+     cordiallyInvited: 'يسعدنا دعوتكم',
     tapToOpen: 'انقر للفتح',
 
-    // Couple section
-    scrollDown: 'تمرير',
+     scrollDown: 'تمرير',
 
-    // Message section
-    eyebrow: 'رسالة من القلب',
+     eyebrow: 'رسالة من القلب',
     messageTitle: 'نسعد بدعوتكم',
     messageParagraphs: [
       'بقلوب مفعمة بالبهجة والامتنان، ندعوكم لتكونوا جزءاً من أجمل احتفالاتنا.',
@@ -28,8 +24,7 @@ export const translations = {
     ],
     signature: 'بكل محبتنا، جودي وبشر',
 
-    // Date section
-    saveTheDate: 'احفظوا الموعد',
+     saveTheDate: 'احفظوا الموعد',
     weAreMarried: 'أصبحنا زوجين',
     congratsHeading: 'مبروك يا جودي وبشر',
     congratsSubtitle: 'بدأت رحلتكما معاً — كلّ عام وأنتما بخير وسعادة وحب لا ينتهي',
@@ -39,13 +34,11 @@ export const translations = {
     minutes: 'دقائق',
     seconds: 'ثوانٍ',
 
-    // Venue section
-    locationEyebrow: 'مكان الحفل',
+     locationEyebrow: 'مكان الحفل',
     venueTitle: 'قاعة الاحتفال',
     getDirections: 'احصل على الاتجاهات',
 
-    // Guestbook section
-    leaveAWish: 'اتركوا أمنية',
+     leaveAWish: 'اتركوا أمنية',
     congratsBook: 'سجل التهاني',
     shareWishes: 'شاركوا محبتكم وتمنياتكم لـ',
     yourName: 'اسمكم',
@@ -57,8 +50,7 @@ export const translations = {
     wishesShared: 'أمنية مشتركة',
     wishesSharedPlural: 'أمنيات مشتركة',
 
-    // Engagement timeline
-    timelineEyebrow: 'رحلة الحب',
+     timelineEyebrow: 'رحلة الحب',
     timelineTitle: 'من الخطوبة إلى الزفاف',
     timelineSubtitle: 'كل خطوة في مسيرتنا كانت بداية لفصل جديد',
     timelineEvents: [
@@ -96,8 +88,7 @@ export const translations = {
   },
 
   en: {
-    // Names & dates (config overrides)
-    partner1: 'Joudi',
+     partner1: 'Joudi',
     partner2: 'Bisher',
     tagline: "We're getting married!",
     displayDate: 'Sunday, May 3rd, 2026',
@@ -105,14 +96,14 @@ export const translations = {
     venueName: 'The Grand Rose Garden',
     venueAddress: '245 Blossom Lane, Beverly Hills, CA 90210',
 
-    // Envelope intro
+  
     cordiallyInvited: 'You are cordially invited',
     tapToOpen: 'tap to open',
 
-    // Couple section
+  
     scrollDown: 'Scroll',
 
-    // Message section
+   
     eyebrow: 'A Message from the Heart',
     messageTitle: 'Join Our Celebration',
     messageParagraphs: [
@@ -122,7 +113,7 @@ export const translations = {
     ],
     signature: 'With all our love, Joudi & Bisher',
 
-    // Date section
+ 
     saveTheDate: 'Save the Date',
     weAreMarried: 'We Are Married',
     congratsHeading: 'Congratulations Joudi & Bisher',
@@ -133,12 +124,12 @@ export const translations = {
     minutes: 'Minutes',
     seconds: 'Seconds',
 
-    // Venue section
+   
     locationEyebrow: 'Venue',
     venueTitle: 'The Celebration Hall',
     getDirections: 'Get Directions',
 
-    // Guestbook section
+   
     leaveAWish: 'Leave a Wish',
     congratsBook: 'Congratulations Book',
     shareWishes: 'Share your love and well wishes for',
@@ -151,7 +142,7 @@ export const translations = {
     wishesShared: 'Wish Shared',
     wishesSharedPlural: 'Wishes Shared',
 
-    // Engagement timeline
+   
     timelineEyebrow: 'Our Journey',
     timelineTitle: 'From Engagement to Wedding',
     timelineSubtitle: 'Every step in our journey was the beginning of a new chapter',
@@ -190,8 +181,7 @@ export const translations = {
   },
 } as const
 
-// Widen the type so both 'ar' and 'en' are assignable
-export type Translations = {
+ export type Translations = {
   [K in keyof typeof translations['en']]:
     K extends 'timelineEvents'
       ? ReadonlyArray<{ date: string; title: string; description: string; icon: string }>

@@ -75,8 +75,7 @@ export function FloatingHearts() {
       if (!canvas || !ctx) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      // Spawn new hearts
-      if (hearts.length < 45 && Math.random() < 0.08) {
+       if (hearts.length < 45 && Math.random() < 0.08) {
         hearts.push(createHeart(canvas.width, canvas.height))
       }
 

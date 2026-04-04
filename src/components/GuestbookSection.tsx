@@ -30,11 +30,9 @@ function MessageCard({ msg, index, inView }: { msg: GuestMessage; index: number;
       transition={{ delay: 0.08 * index, duration: 0.55 }}
       whileHover={{ y: -3, boxShadow: '0 8px 32px rgba(212,175,110,0.12)' }}
     >
-      {/* Top gold accent line */}
-      <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: theme.card.topBar }} />
+       <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: theme.card.topBar }} />
 
-      {/* Decorative quote mark */}
-      <div
+       <div
         className="absolute top-4 right-5 text-6xl leading-none select-none pointer-events-none"
         style={{ fontFamily: theme.font.display, color: 'rgba(212,175,110,0.06)' }}
         aria-hidden="true"
@@ -95,19 +93,18 @@ export function GuestbookSection() {
       animate={inView ? { opacity: 1 } : {}}
       transition={{ duration: 1 }}
     >
-      {/* Background image */}
-      <div
+       <div
         aria-hidden="true"
         className="absolute inset-0"
         style={{ backgroundImage: `url(${config.sectionImages.guestbook})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
       />
-      {/* Dark overlay replaces solid bg */}
+      
       <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
 
-      {/* Vignette */}
+      
       <div className="absolute inset-0 pointer-events-none" style={{ background: theme.bg.vignette }} />
 
-      {/* Gold glow */}
+       
       <motion.div
         className="absolute pointer-events-none"
         style={{ inset: 0, background: theme.bg.glow }}
@@ -115,8 +112,7 @@ export function GuestbookSection() {
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      {/* Gold dust particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         {Array.from({ length: 24 }).map((_, i) => (
           <motion.div
             key={i}
@@ -134,8 +130,7 @@ export function GuestbookSection() {
         ))}
       </div>
 
-      {/* Corner ornaments */}
-      <motion.div className="absolute top-5 left-5" initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.2, duration: 0.7 }}>
+       <motion.div className="absolute top-5 left-5" initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.2, duration: 0.7 }}>
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
           <path d="M2 30 L2 2 L30 2" stroke={theme.ornament.solid} strokeWidth="1.5" opacity={theme.corner.strokeOpacity} />
           <path d="M8 30 L8 8 L30 8" stroke={theme.ornament.solid} strokeWidth="0.8" opacity={theme.corner.innerStrokeOpacity} />
@@ -166,15 +161,13 @@ export function GuestbookSection() {
 
       <div className="relative z-10 max-w-3xl mx-auto">
 
-        {/* Header */}
-        <motion.div
+         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1, duration: 0.8 }}
         >
-          {/* Top rule */}
-          <div className="flex items-center justify-center gap-3 mb-8">
+           <div className="flex items-center justify-center gap-3 mb-8">
             <div className="h-px w-10 sm:w-16" style={{ background: `linear-gradient(to right, transparent, ${theme.ornament.half})` }} />
             <div className="w-1 h-1 rounded-full" style={{ background: theme.ornament.solid, opacity: 0.5 }} />
             <div className="h-px w-10 sm:w-16" style={{ background: `linear-gradient(to left, transparent, ${theme.ornament.half})` }} />
@@ -201,8 +194,7 @@ export function GuestbookSection() {
             <span style={{ color: theme.color.goldDark }}>{t.partner2}</span>
           </p>
 
-          {/* Diamond ornament */}
-          <motion.div
+           <motion.div
             className="flex items-center justify-center gap-3 mt-8"
             initial={{ scaleX: 0 }}
             animate={inView ? { scaleX: 1 } : {}}
@@ -221,8 +213,7 @@ export function GuestbookSection() {
           </motion.div>
         </motion.div>
 
-        {/* Form card */}
-        <motion.form
+         <motion.form
           onSubmit={handleSubmit}
           className="relative mb-14 p-8 md:p-10"
           style={{
@@ -234,16 +225,13 @@ export function GuestbookSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          {/* Top accent bar */}
-          <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: theme.card.topBar }} />
+           <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: theme.card.topBar }} />
 
-          {/* Corner accents */}
-          <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2" style={{ borderColor: theme.ornament.soft }} />
+           <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2" style={{ borderColor: theme.ornament.soft }} />
           <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2" style={{ borderColor: theme.ornament.soft }} />
 
           <div className="relative flex flex-col gap-6">
-            {/* Name */}
-            <div className="flex flex-col gap-2">
+             <div className="flex flex-col gap-2">
               <label className="text-xs tracking-[0.25em] uppercase" style={{ color: theme.color.gold, fontFamily: theme.font.body }}>
                 {t.yourName}
               </label>
@@ -267,8 +255,7 @@ export function GuestbookSection() {
               />
             </div>
 
-            {/* Message */}
-            <div className="flex flex-col gap-2">
+             <div className="flex flex-col gap-2">
               <label className="text-xs tracking-[0.25em] uppercase" style={{ color: theme.color.gold, fontFamily: theme.font.body }}>
                 {t.yourMessage}
               </label>
@@ -295,8 +282,7 @@ export function GuestbookSection() {
               </div>
             </div>
 
-            {/* Submit row */}
-            <div className="flex items-center gap-5 pt-1">
+             <div className="flex items-center gap-5 pt-1">
               <motion.button
                 type="submit"
                 disabled={submitting || !name.trim() || !message.trim()}
@@ -342,8 +328,7 @@ export function GuestbookSection() {
           </div>
         </motion.form>
 
-        {/* Messages grid */}
-        {messages.length > 0 && (
+         {messages.length > 0 && (
           <div>
             <motion.p
               className="text-xs tracking-[0.35em] uppercase mb-8 text-center"
@@ -363,8 +348,7 @@ export function GuestbookSection() {
           </div>
         )}
 
-        {/* Footer names */}
-        <motion.p
+         <motion.p
           className="text-center text-sm italic mt-16"
           style={{ fontFamily: theme.font.display, color: theme.color.subtle }}
           initial={{ opacity: 0 }}
@@ -376,8 +360,7 @@ export function GuestbookSection() {
           <span style={{ color: theme.color.goldDark }}>{t.partner2}</span> —
         </motion.p>
 
-        {/* Bottom rule */}
-        <motion.div
+         <motion.div
           className="flex items-center justify-center gap-3 mt-8"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}

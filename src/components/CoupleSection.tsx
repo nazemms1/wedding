@@ -39,8 +39,7 @@ function GoldDust() {
   );
 }
 
-// Decorative diamond ornament
-function DiamondDivider() {
+ function DiamondDivider() {
   return (
     <div className="flex items-center justify-center gap-3 my-4">
       <motion.div
@@ -92,8 +91,7 @@ export function CoupleSection() {
   const { t } = useLanguage();
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* ── Background image ── */}
-      <img
+       <img
         src={config.sectionImages.couple}
         alt=""
         aria-hidden="true"
@@ -106,8 +104,7 @@ export function CoupleSection() {
         }}
       />
 
-      {/* ── Navy overlay ── */}
-      <div
+       <div
         className="absolute inset-0"
         style={{
           background:
@@ -115,8 +112,7 @@ export function CoupleSection() {
         }}
       />
 
-      {/* Subtle vignette */}
-      <div
+       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
@@ -124,8 +120,7 @@ export function CoupleSection() {
         }}
       />
 
-      {/* Gold glow in center */}
-      <motion.div
+       <motion.div
         className="absolute pointer-events-none"
         style={{
           inset: 0,
@@ -138,8 +133,7 @@ export function CoupleSection() {
 
       <GoldDust />
 
-      {/* ── Corner ornaments ── */}
-      {/* Top-left */}
+    
       <motion.div
         className="absolute top-5 left-5"
         initial={{ opacity: 0, scale: 0 }}
@@ -162,7 +156,7 @@ export function CoupleSection() {
           <circle cx="2" cy="2" r="2" fill="#D4AF6E" opacity="0.6" />
         </svg>
       </motion.div>
-      {/* Top-right */}
+     
       <motion.div
         className="absolute top-5 right-5"
         initial={{ opacity: 0, scale: 0 }}
@@ -185,7 +179,7 @@ export function CoupleSection() {
           <circle cx="62" cy="2" r="2" fill="#D4AF6E" opacity="0.6" />
         </svg>
       </motion.div>
-      {/* Bottom-left */}
+     
       <motion.div
         className="absolute bottom-5 left-5"
         initial={{ opacity: 0, scale: 0 }}
@@ -208,7 +202,7 @@ export function CoupleSection() {
           <circle cx="2" cy="62" r="2" fill="#D4AF6E" opacity="0.6" />
         </svg>
       </motion.div>
-      {/* Bottom-right */}
+     
       <motion.div
         className="absolute bottom-5 right-5"
         initial={{ opacity: 0, scale: 0 }}
@@ -232,10 +226,8 @@ export function CoupleSection() {
         </svg>
       </motion.div>
 
-      {/* ── Main content ── */}
-      <div className="relative z-10 text-center px-6 flex flex-col items-center">
-        {/* Top rule */}
-        <motion.div
+       <div className="relative z-10 text-center px-6 flex flex-col items-center">
+         <motion.div
           className="flex items-center gap-3 mb-6"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -261,8 +253,7 @@ export function CoupleSection() {
           />
         </motion.div>
 
-        {/* Eyebrow */}
-        <motion.p
+         <motion.p
           style={{
             color: "#D4AF6E",
             letterSpacing: "0.45em",
@@ -279,8 +270,7 @@ export function CoupleSection() {
           {t.cordiallyInvited}
         </motion.p>
 
-        {/* Partner 1 name */}
-        <motion.div
+         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55, duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -302,11 +292,9 @@ export function CoupleSection() {
           </h1>
         </motion.div>
 
-        {/* Diamond divider + ampersand */}
-        <DiamondDivider />
+         <DiamondDivider />
 
-        {/* Partner 2 name */}
-        <motion.div
+         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.05, duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -328,8 +316,7 @@ export function CoupleSection() {
           </h1>
         </motion.div>
 
-        {/* Bottom ornament line */}
-        <motion.div
+         <motion.div
           className="flex items-center gap-3 my-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -372,8 +359,7 @@ export function CoupleSection() {
           {t.tagline}
         </motion.p>
 
-        {/* Date */}
-        <motion.p
+         <motion.p
           style={{
             color: "rgba(255,255,255,0.3)",
             letterSpacing: "0.3em",
@@ -389,8 +375,7 @@ export function CoupleSection() {
         </motion.p>
       </div>
 
-      {/* ── Scroll indicator ── */}
-      <motion.div
+       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

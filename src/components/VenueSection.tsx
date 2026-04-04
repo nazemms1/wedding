@@ -16,28 +16,23 @@ export function VenueSection() {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.9 }}
     >
-      {/* Background image */}
-      <div
+       <div
         aria-hidden="true"
         className="absolute inset-0"
         style={{ backgroundImage: `url(${config.sectionImages.venue})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
       />
-      {/* Dark overlay replaces solid bg */}
-      <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
+       <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
 
-      {/* Vignette */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: theme.bg.vignette }} />
+       <div className="absolute inset-0 pointer-events-none" style={{ background: theme.bg.vignette }} />
 
-      {/* Gold glow */}
-      <motion.div
+       <motion.div
         className="absolute pointer-events-none"
         style={{ inset: 0, background: theme.bg.glow }}
         animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.1, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-      {/* Gold dust particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         {Array.from({ length: 24 }).map((_, i) => (
           <motion.div
             key={i}
@@ -55,8 +50,7 @@ export function VenueSection() {
         ))}
       </div>
 
-      {/* Corner ornaments */}
-      <motion.div className="absolute top-5 left-5" initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.2, duration: 0.7 }}>
+       <motion.div className="absolute top-5 left-5" initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.2, duration: 0.7 }}>
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
           <path d="M2 30 L2 2 L30 2" stroke={theme.ornament.solid} strokeWidth="1.5" opacity={theme.corner.strokeOpacity} />
           <path d="M8 30 L8 8 L30 8" stroke={theme.ornament.solid} strokeWidth="0.8" opacity={theme.corner.innerStrokeOpacity} />
@@ -87,8 +81,7 @@ export function VenueSection() {
 
       <div className="relative z-10 max-w-4xl mx-auto">
 
-        {/* Top rule */}
-        <motion.div
+         <motion.div
           className="flex items-center justify-center gap-3 mb-8"
           initial={{ opacity: 0, y: -10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -119,7 +112,7 @@ export function VenueSection() {
           {t.venueName}
         </motion.h3>
 
-        {/* Address */}
+    
         <motion.div
           className="flex items-center justify-center gap-2 mb-12"
           initial={{ opacity: 0 }}
@@ -135,7 +128,7 @@ export function VenueSection() {
           </address>
         </motion.div>
 
-        {/* Map card */}
+        
         <motion.div
           className="relative mb-10"
           style={{
@@ -147,11 +140,9 @@ export function VenueSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.5, duration: 0.85 }}
         >
-          {/* Top accent bar */}
-          <div className="h-0.5 w-full" style={{ background: `linear-gradient(to right, transparent, ${theme.ornament.solid}, transparent)` }} />
+           <div className="h-0.5 w-full" style={{ background: `linear-gradient(to right, transparent, ${theme.ornament.solid}, transparent)` }} />
 
-          {/* Card header */}
-          <div
+           <div
             className="flex items-center justify-between px-5 py-3"
             style={{ borderBottom: `1px solid ${theme.ornament.soft}` }}
           >
@@ -186,7 +177,7 @@ export function VenueSection() {
             </motion.a>
           </div>
 
-          {/* iframe */}
+       
           <div className="relative w-full" style={{ paddingBottom: '52%', minHeight: '300px' }}>
             <iframe
               src={config.venue.googleMapsEmbedUrl}
@@ -198,15 +189,14 @@ export function VenueSection() {
             />
           </div>
 
-          {/* Corner ornaments */}
+        
           <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2" style={{ borderColor: theme.ornament.solid }} />
           <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2" style={{ borderColor: theme.ornament.solid }} />
           <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2" style={{ borderColor: theme.ornament.solid }} />
           <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2" style={{ borderColor: theme.ornament.solid }} />
         </motion.div>
 
-        {/* Bottom rule */}
-        <motion.div
+         <motion.div
           className="flex items-center justify-center gap-3 mt-12"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}

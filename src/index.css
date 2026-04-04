@@ -32,21 +32,17 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ── Arabic (RTL) overrides ─────────────────────────────────────────────── */
 html[dir="rtl"] body,
 html[dir="rtl"] * {
   font-family: 'Noto Naskh Arabic', serif !important;
-  /* Kill all letter-spacing — it destroys Arabic readability */
   letter-spacing: 0 !important;
 }
 
-/* Eyebrow labels: were 0.65–0.68rem in English, bump to 1rem in Arabic */
 html[dir="rtl"] .text-xs {
   font-size: 1rem !important;
   text-transform: none !important;
 }
 
-/* Small tracking labels rendered via inline style (CoupleSection, VenueSection) */
 html[dir="rtl"] [style*="fontSize: \"0.68rem\""],
 html[dir="rtl"] [style*="fontSize: \"0.65rem\""],
 html[dir="rtl"] [style*="font-size: 0.65rem"],
@@ -54,7 +50,6 @@ html[dir="rtl"] [style*="font-size: 0.68rem"] {
   font-size: 1rem !important;
 }
 
-/* Envelope tiny labels (clamp(7px, ...)) */
 html[dir="rtl"] [style*="clamp(7px"] {
   font-size: clamp(13px, 2.5vw, 16px) !important;
 }
@@ -65,13 +60,11 @@ html[dir="rtl"] [style*="clamp(11px"] {
   font-size: clamp(14px, 2.5vw, 17px) !important;
 }
 
-/* Section body text: slightly larger for Arabic */
 html[dir="rtl"] .text-sm  { font-size: 1.05rem !important; }
 html[dir="rtl"] .text-base { font-size: 1.15rem !important; }
 html[dir="rtl"] .text-lg  { font-size: 1.25rem !important; }
 html[dir="rtl"] .text-xl  { font-size: 1.35rem !important; }
 
-/* RTL text alignment */
 html[dir="rtl"] .text-center { text-align: center !important; }
 html[dir="rtl"] #root { text-align: right; }
 
@@ -96,8 +89,6 @@ body {
 .font-display {
   font-family: var(--font-display);
 }
-
-/* Particle canvas sits behind everything */
 canvas.particles {
   position: fixed;
   inset: 0;
@@ -121,14 +112,12 @@ canvas.particles {
   color: var(--color-navy);
 }
 
-/* Floating hearts keyframe */
-@keyframes float-up {
+ @keyframes float-up {
   0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
   100% { transform: translateY(-120vh) rotate(720deg); opacity: 0; }
 }
 
-/* Shimmer keyframe for dividers */
-@keyframes shimmer {
+ @keyframes shimmer {
   0%   { background-position: -200% center; }
   100% { background-position: 200% center; }
 }
@@ -145,8 +134,7 @@ canvas.particles {
   animation: shimmer 3s linear infinite;
 }
 
-/* Pulse glow for countdown boxes */
-@keyframes pulse-glow {
+ @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 12px 0 rgba(56, 189, 248, 0.2); }
   50%       { box-shadow: 0 0 24px 6px rgba(56, 189, 248, 0.45); }
 }
