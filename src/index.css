@@ -107,6 +107,15 @@ canvas.particles {
   border-radius: 3px;
 }
 
+/* Bisher route: sky blue scrollbar */
+html.bisher ::-webkit-scrollbar-track {
+  background: #040D1E;
+}
+html.bisher ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #38BDF8, #0EA5E9, #0284C7);
+  border-radius: 3px;
+}
+
 ::selection {
   background: var(--color-sky-pale);
   color: var(--color-navy);

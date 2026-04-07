@@ -7,8 +7,8 @@ export const translations = {
     tagline: 'نحتفل بزفافنا',
     displayDate: 'الأحد، ٣ مايو ٢٠٢٦',
     displayTime: '٧:٠٠ مساءً',
-    venueName: 'قاعة وردة الكبرى',
-    venueAddress: '٢٤٥ طريق الأزهار، بيفرلي هيلز',
+    venueName: 'صالة اللافندا',
+    venueAddress: 'دمشق، سوريا',
 
      cordiallyInvited: 'يسعدنا دعوتكم',
     tapToOpen: 'انقر للفتح',
@@ -93,8 +93,8 @@ export const translations = {
     tagline: "We're getting married!",
     displayDate: 'Sunday, May 3rd, 2026',
     displayTime: '7:00 PM',
-    venueName: 'The Grand Rose Garden',
-    venueAddress: '245 Blossom Lane, Beverly Hills, CA 90210',
+    venueName: 'Lavanda Hall',
+    venueAddress: 'Damascus, Syria',
 
   
     cordiallyInvited: 'You are cordially invited',
