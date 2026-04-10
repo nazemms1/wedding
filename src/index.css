@@ -2,16 +2,18 @@
 @import "tailwindcss";
 
 @theme {
+ 
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body: 'Lato', system-ui, sans-serif;
 
-  /* Navy (groom) */
+ 
+  /* Navy (dark background) */
   --color-navy: #0F2557;
   --color-navy-mid: #1A3370;
   --color-navy-light: #254090;
   --color-navy-mist: #E8EDF7;
 
-  /* Sky blue (bride) */
+  /* Sky blue (Bisher variant accent) */
   --color-sky: #38BDF8;
   --color-sky-light: #7DD3FC;
   --color-sky-pale: #E0F2FE;
@@ -23,9 +25,18 @@
   --color-charcoal: #0D1B3E;
   --color-muted: #6B7280;
 
-  /* Gold accent */
+  /* Gold accent (main invitation theme) */
   --color-gold: #D4AF6E;
   --color-gold-dark: #B8924A;
+
+  /* ── Scrollbar ───────────────────────────────────────────────────
+     Controls the thin scrollbar on the right edge of the page.
+     Change these to match your accent color if you change the theme.
+     ────────────────────────────────────────────────────────────────*/
+  --scrollbar-track: #050E1F;
+  --scrollbar-thumb-start: #D4AF6E;
+  --scrollbar-thumb-mid: #C9A84C;
+  --scrollbar-thumb-end: #B8924A;
 }
 
 html {
@@ -100,14 +111,19 @@ canvas.particles {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #050E1F;
+  background: var(--scrollbar-track);
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #D4AF6E, #C9A84C, #B8924A);
+  background: linear-gradient(
+    to bottom,
+    var(--scrollbar-thumb-start),
+    var(--scrollbar-thumb-mid),
+    var(--scrollbar-thumb-end)
+  );
   border-radius: 3px;
 }
 
-/* Bisher route: sky blue scrollbar */
+/* Bisher route: sky blue scrollbar (overrides the gold defaults above) */
 html.bisher ::-webkit-scrollbar-track {
   background: #040D1E;
 }

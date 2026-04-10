@@ -54,7 +54,7 @@ function DiamondDivider({
 }
 
 export function BisherCoupleSection() {
-  const { t, theme } = useBisher();
+  const { t, theme, config } = useBisher();
 
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
@@ -77,7 +77,6 @@ export function BisherCoupleSection() {
         style={{ background: theme.bg.vignette }}
       />
 
-      {/* Sky blue glow */}
       <motion.div
         className="absolute pointer-events-none"
         style={{
@@ -89,7 +88,6 @@ export function BisherCoupleSection() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Dust particles */}
       <div
         className="absolute inset-0 overflow-hidden pointer-events-none"
         aria-hidden="true"
@@ -116,7 +114,6 @@ export function BisherCoupleSection() {
         ))}
       </div>
 
-      {/* Corner ornaments */}
       {[
         {
           cls: "absolute top-5 left-5",
@@ -182,75 +179,82 @@ export function BisherCoupleSection() {
         </motion.div>
       ))}
 
-       <div className="absolute top-8 left-0 right-0 z-10 flex flex-col items-center gap-3 px-6 pointer-events-none">
-        <motion.p
-          dir="rtl"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 1 }}
-          style={{
-            fontFamily: "'Scheherazade New', 'Noto Naskh Arabic', serif",
-            fontSize: "clamp(1.1rem, 3vw, 1.5rem)",
-            color: theme.color.skyBlue,
-            letterSpacing: 0,
-            lineHeight: 1.8,
-            textShadow: "0 0 20px rgba(56,189,248,0.4)",
-          }}
-        >
-          بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-        </motion.p>
+      {(config.branding.openingLine || config.branding.verse) && (
+        <div className="absolute top-8 left-0 right-0 z-10 flex flex-col items-center gap-3 px-6 pointer-events-none">
+          {config.branding.openingLine && (
+            <motion.p
+              dir="rtl"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 1 }}
+              style={{
+                fontFamily: config.branding.verseFont,
+                fontSize: "clamp(1.1rem, 3vw, 1.5rem)",
+                color: theme.color.skyBlue,
+                letterSpacing: 0,
+                lineHeight: 1.8,
+                textShadow: "0 0 20px rgba(56,189,248,0.4)",
+              }}
+            >
+              {config.branding.openingLine}
+            </motion.p>
+          )}
 
-        <motion.div
-          className="flex items-center gap-3"
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-        >
-          <div
-            style={{
-              width: 60,
-              height: 1,
-              background: `linear-gradient(to right, transparent, ${theme.ornament.half})`,
-            }}
-          />
-          <div
-            style={{
-              width: 5,
-              height: 5,
-              borderRadius: "50%",
-              background: theme.color.skyBlue,
-              opacity: 0.5,
-            }}
-          />
-          <div
-            style={{
-              width: 60,
-              height: 1,
-              background: `linear-gradient(to left, transparent, ${theme.ornament.half})`,
-            }}
-          />
-        </motion.div>
+          {config.branding.openingLine && config.branding.verse && (
+            <motion.div
+              className="flex items-center gap-3"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              <div
+                style={{
+                  width: 60,
+                  height: 1,
+                  background: `linear-gradient(to right, transparent, ${theme.ornament.half})`,
+                }}
+              />
+              <div
+                style={{
+                  width: 5,
+                  height: 5,
+                  borderRadius: "50%",
+                  background: theme.color.skyBlue,
+                  opacity: 0.5,
+                }}
+              />
+              <div
+                style={{
+                  width: 60,
+                  height: 1,
+                  background: `linear-gradient(to left, transparent, ${theme.ornament.half})`,
+                }}
+              />
+            </motion.div>
+          )}
 
-        <motion.p
-          dir="rtl"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 1 }}
-          style={{
-            fontFamily: "'Scheherazade New', 'Noto Naskh Arabic', serif",
-            fontSize: "clamp(0.95rem, 2.5vw, 1.25rem)",
-            color: "rgba(255,255,255,0.75)",
-            letterSpacing: 0,
-            lineHeight: 2,
-            textAlign: "center",
-            maxWidth: 600,
-            textShadow: "0 1px 8px rgba(0,0,0,0.5)",
-          }}
-        >
-          ﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا
-          لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾
-        </motion.p>
-      </div>
+          {config.branding.verse && (
+            <motion.p
+              dir="rtl"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 1 }}
+              style={{
+                fontFamily: config.branding.verseFont,
+                fontSize: "clamp(0.95rem, 2.5vw, 1.25rem)",
+                color: "rgba(255,255,255,0.75)",
+                letterSpacing: 0,
+                lineHeight: 2,
+                textAlign: "center",
+                maxWidth: 600,
+                textShadow: "0 1px 8px rgba(0,0,0,0.5)",
+              }}
+            >
+              {config.branding.verse}
+            </motion.p>
+          )}
+        </div>
+      )}
 
       <div className="relative z-10 text-center px-6 flex flex-col items-center">
         <motion.div
@@ -296,8 +300,7 @@ export function BisherCoupleSection() {
           {t.cordiallyInvited}
         </motion.p>
 
-        {/* Partner 2 (Bisher) — larger, gold */}
-        <motion.div
+         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55, duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -323,8 +326,7 @@ export function BisherCoupleSection() {
           ornament={theme.color.gold}
         />
 
-        {/* Partner 1 (Joudi) */}
-        <motion.div
+         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.05, duration: 1, ease: [0.22, 1, 0.36, 1] }}

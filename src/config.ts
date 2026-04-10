@@ -10,6 +10,14 @@ export const config: SiteConfig = {
     partner2: "Bisher",
     tagline: "We're getting married!",
   },
+
+   branding: {
+    openingLine: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
+    verse:
+      "﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾",
+    verseFont: "'Scheherazade New', 'Noto Naskh Arabic', serif",
+  },
+
   message: {
     paragraphs: [
       "With hearts overflowing with joy and gratitude, we invite you to be part of our most cherished celebration.",
@@ -62,12 +70,27 @@ export const config: SiteConfig = {
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1920&q=80",
   },
   sectionImages: {
-     envelope: "/wedding/envelope.jpeg",
-     couple: "/wedding/wedding-ring.jpeg",
-     message: "/wedding/message.jpeg",
-     date: "/wedding/date.jpeg",
-     venue: "/wedding/venue.jpeg",
-     guestbook: "/wedding/guestbook.jpeg",
+    envelope: "/wedding/envelope.jpeg",
+    couple: "/wedding/wedding-ring.jpeg",
+    message: "/wedding/message.jpeg",
+    date: "/wedding/date.jpeg",
+    venue: "/wedding/venue.jpeg",
+    guestbook: "/wedding/guestbook.jpeg",
     engagment: "/wedding/B-J.jpeg",
+  },
+
+   guestbook: {
+    seedMessages: [
+      {
+        name: "Sarah & Mark",
+        message:
+          "Wishing you both a lifetime of happiness and endless adventures together. So thrilled to celebrate you!",
+      },
+      {
+        name: "The Johnson Family",
+        message:
+          "May your love grow stronger with every passing year. Congratulations to the most beautiful couple!",
+      },
+    ],
   },
 };

@@ -8,6 +8,14 @@ export interface SiteConfig {
     partner2: string
     tagline: string
   }
+  branding: {
+   
+    openingLine: string | null
+ 
+    verse: string | null
+ 
+    verseFont: string
+  }
   message: {
     paragraphs: string[]
     signature: string
@@ -42,7 +50,11 @@ export interface SiteConfig {
     date: string
     venue: string
     guestbook: string
-    engagment:string
+    engagment: string
+  }
+   
+  guestbook: {
+    seedMessages: Array<{ name: string; message: string }>
   }
 }
 

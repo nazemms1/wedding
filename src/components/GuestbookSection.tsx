@@ -10,11 +10,10 @@ interface GuestMessage {
   name: string
   message: string
 }
-
-const SEED_MESSAGES: GuestMessage[] = [
-  { id: 1, name: 'Sarah & Mark', message: 'Wishing you both a lifetime of happiness and endless adventures together. So thrilled to celebrate you!' },
-  { id: 2, name: 'The Johnson Family', message: 'May your love grow stronger with every passing year. Congratulations to the most beautiful couple!' },
-]
+ 
+const SEED_MESSAGES: GuestMessage[] = config.guestbook.seedMessages.map(
+  (m, i) => ({ id: i + 1, name: m.name, message: m.message }),
+)
 
 function MessageCard({ msg, index, inView }: { msg: GuestMessage; index: number; inView: boolean }) {
   return (
@@ -49,7 +48,7 @@ function MessageCard({ msg, index, inView }: { msg: GuestMessage; index: number;
 
       <div className="flex items-center gap-3">
         <div
-          className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0"
+          className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold shrink-0"
           style={{ background: `linear-gradient(135deg, ${theme.color.goldDark}, ${theme.color.gold})`, color: '#0A1A3A' }}
         >
           {msg.name.charAt(0).toUpperCase()}

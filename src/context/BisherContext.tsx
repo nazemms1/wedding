@@ -3,6 +3,7 @@ import type { BisherTranslations } from '../i18n.bisher'
 import { bisherTranslations } from '../i18n.bisher'
 import { bisherConfig } from '../config.bisher'
 import { bisherTheme } from '../theme.bisher'
+import type { SiteConfig } from '../types/config'
 
 export type Lang = 'ar' | 'en'
 
@@ -10,7 +11,7 @@ interface BisherContextValue {
   lang: Lang
   t: BisherTranslations
   dir: 'rtl' | 'ltr'
-  config: typeof bisherConfig
+  config: SiteConfig
   theme: typeof bisherTheme
 }
 
