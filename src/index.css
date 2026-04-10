@@ -7,32 +7,25 @@
   --font-body: 'Lato', system-ui, sans-serif;
 
  
-  /* Navy (dark background) */
-  --color-navy: #0F2557;
+   --color-navy: #0F2557;
   --color-navy-mid: #1A3370;
   --color-navy-light: #254090;
   --color-navy-mist: #E8EDF7;
 
-  /* Sky blue (Bisher variant accent) */
-  --color-sky: #38BDF8;
+   --color-sky: #38BDF8;
   --color-sky-light: #7DD3FC;
   --color-sky-pale: #E0F2FE;
   --color-sky-blush: #F0F9FF;
 
-  /* Shared neutrals */
-  --color-ivory: #F8FBFF;
+   --color-ivory: #F8FBFF;
   --color-warm-white: #F0F7FF;
   --color-charcoal: #0D1B3E;
   --color-muted: #6B7280;
 
-  /* Gold accent (main invitation theme) */
-  --color-gold: #D4AF6E;
+   --color-gold: #D4AF6E;
   --color-gold-dark: #B8924A;
 
-  /* ── Scrollbar ───────────────────────────────────────────────────
-     Controls the thin scrollbar on the right edge of the page.
-     Change these to match your accent color if you change the theme.
-     ────────────────────────────────────────────────────────────────*/
+ 
   --scrollbar-track: #050E1F;
   --scrollbar-thumb-start: #D4AF6E;
   --scrollbar-thumb-mid: #C9A84C;
@@ -123,7 +116,6 @@ canvas.particles {
   border-radius: 3px;
 }
 
-/* Bisher route: sky blue scrollbar (overrides the gold defaults above) */
 html.bisher ::-webkit-scrollbar-track {
   background: #040D1E;
 }
