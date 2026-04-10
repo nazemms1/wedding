@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
-import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { useScrollAnimation } from '../../../hooks/useScrollAnimation'
 import { config } from '../config'
 import { theme } from '../theme'
-import { useLanguage } from '../context/LanguageContext'
+import { useLanguage } from '../context'
 
 export function MessageSection() {
   const { t } = useLanguage()
@@ -16,23 +16,21 @@ export function MessageSection() {
       animate={inView ? { opacity: 1 } : {}}
       transition={{ duration: 0.9 }}
     >
-        <div
+      <div
         aria-hidden="true"
         className="absolute inset-0"
         style={{ backgroundImage: `url(${config.sectionImages.message})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}
       />
-       <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
-
-       <div className="absolute inset-0 pointer-events-none" style={{ background: theme.bg.vignette }} />
-
-       <motion.div
+      <div className="absolute inset-0" style={{ background: theme.bg.section, opacity: 0.88 }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: theme.bg.vignette }} />
+      <motion.div
         className="absolute pointer-events-none"
         style={{ inset: 0, background: theme.bg.glow }}
         animate={{ opacity: [0.5, 1, 0.5], scale: [1, 1.1, 1] }}
         transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
       />
 
-       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         {Array.from({ length: 24 }).map((_, i) => (
           <motion.div
             key={i}
@@ -50,36 +48,22 @@ export function MessageSection() {
         ))}
       </div>
 
-       <motion.div className="absolute top-5 left-5" initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.2, duration: 0.7 }}>
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <path d="M2 30 L2 2 L30 2" stroke={theme.ornament.solid} strokeWidth="1.5" opacity={theme.corner.strokeOpacity} />
-          <path d="M8 30 L8 8 L30 8" stroke={theme.ornament.solid} strokeWidth="0.8" opacity={theme.corner.innerStrokeOpacity} />
-          <circle cx="2" cy="2" r="2" fill={theme.ornament.solid} opacity={theme.corner.dotOpacity} />
-        </svg>
-      </motion.div>
-      <motion.div className="absolute top-5 right-5" initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.3, duration: 0.7 }}>
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <path d="M62 30 L62 2 L34 2" stroke={theme.ornament.solid} strokeWidth="1.5" opacity={theme.corner.strokeOpacity} />
-          <path d="M56 30 L56 8 L34 8" stroke={theme.ornament.solid} strokeWidth="0.8" opacity={theme.corner.innerStrokeOpacity} />
-          <circle cx="62" cy="2" r="2" fill={theme.ornament.solid} opacity={theme.corner.dotOpacity} />
-        </svg>
-      </motion.div>
-      <motion.div className="absolute bottom-5 left-5" initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.4, duration: 0.7 }}>
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <path d="M2 34 L2 62 L30 62" stroke={theme.ornament.solid} strokeWidth="1.5" opacity={theme.corner.strokeOpacity} />
-          <path d="M8 34 L8 56 L30 56" stroke={theme.ornament.solid} strokeWidth="0.8" opacity={theme.corner.innerStrokeOpacity} />
-          <circle cx="2" cy="62" r="2" fill={theme.ornament.solid} opacity={theme.corner.dotOpacity} />
-        </svg>
-      </motion.div>
-      <motion.div className="absolute bottom-5 right-5" initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: 0.5, duration: 0.7 }}>
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <path d="M62 34 L62 62 L34 62" stroke={theme.ornament.solid} strokeWidth="1.5" opacity={theme.corner.strokeOpacity} />
-          <path d="M56 34 L56 56 L34 56" stroke={theme.ornament.solid} strokeWidth="0.8" opacity={theme.corner.innerStrokeOpacity} />
-          <circle cx="62" cy="62" r="2" fill={theme.ornament.solid} opacity={theme.corner.dotOpacity} />
-        </svg>
-      </motion.div>
+      {[
+        { cls: 'absolute top-5 left-5', d1: 'M2 30 L2 2 L30 2', d2: 'M8 30 L8 8 L30 8', cx: 2, cy: 2, delay: 0.2 },
+        { cls: 'absolute top-5 right-5', d1: 'M62 30 L62 2 L34 2', d2: 'M56 30 L56 8 L34 8', cx: 62, cy: 2, delay: 0.3 },
+        { cls: 'absolute bottom-5 left-5', d1: 'M2 34 L2 62 L30 62', d2: 'M8 34 L8 56 L30 56', cx: 2, cy: 62, delay: 0.4 },
+        { cls: 'absolute bottom-5 right-5', d1: 'M62 34 L62 62 L34 62', d2: 'M56 34 L56 56 L34 56', cx: 62, cy: 62, delay: 0.5 },
+      ].map((c, i) => (
+        <motion.div key={i} className={c.cls} initial={{ opacity: 0, scale: 0 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ delay: c.delay, duration: 0.7 }}>
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <path d={c.d1} stroke={theme.ornament.solid} strokeWidth="1.5" opacity={theme.corner.strokeOpacity} />
+            <path d={c.d2} stroke={theme.ornament.solid} strokeWidth="0.8" opacity={theme.corner.innerStrokeOpacity} />
+            <circle cx={c.cx} cy={c.cy} r="2" fill={theme.ornament.solid} opacity={theme.corner.dotOpacity} />
+          </svg>
+        </motion.div>
+      ))}
 
-       <div
+      <div
         className="absolute top-8 left-6 md:left-16 select-none pointer-events-none"
         style={{ fontFamily: theme.font.display, fontSize: '180px', lineHeight: 1, color: 'rgba(212,175,110,0.05)' }}
         aria-hidden="true"
@@ -88,8 +72,7 @@ export function MessageSection() {
       </div>
 
       <div className="relative z-10 max-w-2xl mx-auto text-center">
-
-         <motion.div
+        <motion.div
           className="flex items-center justify-center gap-3 mb-8"
           initial={{ opacity: 0, y: -10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -100,7 +83,6 @@ export function MessageSection() {
           <div className="h-px w-10 sm:w-16" style={{ background: `linear-gradient(to left, transparent, ${theme.ornament.half})` }} />
         </motion.div>
 
- 
         <motion.p
           className="text-xs tracking-[0.45em] uppercase mb-10"
           style={{ color: theme.color.gold, fontFamily: theme.font.body }}
@@ -111,7 +93,7 @@ export function MessageSection() {
           {t.eyebrow}
         </motion.p>
 
-         {t.messageParagraphs.map((para, i) => (
+        {t.messageParagraphs.map((para, i) => (
           <motion.p
             key={i}
             className="text-lg md:text-xl leading-relaxed mb-6 last:mb-0"
@@ -124,7 +106,7 @@ export function MessageSection() {
           </motion.p>
         ))}
 
-         <motion.div
+        <motion.div
           className="flex items-center justify-center gap-3 my-10"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -151,7 +133,7 @@ export function MessageSection() {
           />
         </motion.div>
 
-         <motion.p
+        <motion.p
           className="text-2xl md:text-3xl italic"
           style={{ fontFamily: theme.font.display, color: theme.color.goldLight, textShadow: theme.shadow.name }}
           initial={{ opacity: 0, y: 16 }}
@@ -161,7 +143,7 @@ export function MessageSection() {
           {t.signature}
         </motion.p>
 
-         <motion.div
+        <motion.div
           className="flex items-center justify-center gap-3 mt-8"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -171,7 +153,6 @@ export function MessageSection() {
           <div className="w-1.5 h-1.5 rotate-45 border" style={{ borderColor: theme.ornament.soft }} />
           <div className="h-px w-16 sm:w-24" style={{ background: `linear-gradient(to left, transparent, ${theme.ornament.soft})` }} />
         </motion.div>
-
       </div>
     </motion.section>
   )

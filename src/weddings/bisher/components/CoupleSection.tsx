@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useBisher } from "../context/BisherContext";
+import { useWedding } from "../context";
 
 function DiamondDivider({
   skyBlue,
@@ -53,8 +53,8 @@ function DiamondDivider({
   );
 }
 
-export function BisherCoupleSection() {
-  const { t, theme, config } = useBisher();
+export function CoupleSection() {
+  const { t, theme, config } = useWedding();
 
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">

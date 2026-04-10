@@ -1,6 +1,6 @@
 export type Lang = 'ar' | 'en'
 
-export const bisherTranslations = {
+export const translations = {
   ar: {
     partner1: 'جودي',
     partner2: 'بشر',
@@ -174,8 +174,8 @@ export const bisherTranslations = {
   },
 } as const
 
-export type BisherTranslations = {
-  [K in keyof typeof bisherTranslations['en']]:
+export type Translations = {
+  [K in keyof typeof translations['en']]:
     K extends 'timelineEvents'
       ? ReadonlyArray<{ date: string; title: string; description: string; icon: string }>
       : K extends 'messageParagraphs'

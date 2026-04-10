@@ -1,4 +1,4 @@
-import type { SiteConfig } from "./types/config";
+import type { SiteConfig } from "../../types/config";
 
 export const config: SiteConfig = {
   meta: {
@@ -11,7 +11,7 @@ export const config: SiteConfig = {
     tagline: "We're getting married!",
   },
 
-   branding: {
+  branding: {
     openingLine: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
     verse:
       "﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾",
@@ -79,7 +79,7 @@ export const config: SiteConfig = {
     engagment: "/wedding/B-J.jpeg",
   },
 
-   guestbook: {
+  guestbook: {
     seedMessages: [
       {
         name: "Sarah & Mark",

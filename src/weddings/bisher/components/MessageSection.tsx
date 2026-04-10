@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
-import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { useBisher } from '../context/BisherContext'
+import { useScrollAnimation } from '../../../hooks/useScrollAnimation'
+import { useWedding } from '../context'
 
-export function BisherMessageSection() {
-  const { t, theme, config } = useBisher()
+export function MessageSection() {
+  const { t, theme, config } = useWedding()
   const [ref, inView] = useScrollAnimation()
 
   return (
@@ -30,7 +30,6 @@ export function BisherMessageSection() {
         ))}
       </div>
 
-      {/* Corner ornaments — sky blue */}
       {[
         { cls: 'absolute top-5 left-5', d1: 'M2 30 L2 2 L30 2', d2: 'M8 30 L8 8 L30 8', cx: 2, cy: 2, delay: 0.2 },
         { cls: 'absolute top-5 right-5', d1: 'M62 30 L62 2 L34 2', d2: 'M56 30 L56 8 L34 8', cx: 62, cy: 2, delay: 0.3 },

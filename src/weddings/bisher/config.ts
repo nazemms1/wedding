@@ -1,6 +1,6 @@
-import type { SiteConfig } from "./types/config";
+import type { SiteConfig } from "../../types/config";
 
-export const bisherConfig: SiteConfig = {
+export const config: SiteConfig = {
   meta: {
     title: "بشر وجودي | ٣٠ أبريل ٢٠٢٦",
     language: "ar",

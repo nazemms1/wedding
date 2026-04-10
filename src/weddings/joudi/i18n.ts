@@ -2,7 +2,7 @@ export type Lang = 'ar' | 'en'
 
 export const translations = {
   ar: {
-     partner1: 'جودي',
+    partner1: 'جودي',
     partner2: 'بشر',
     tagline: 'نحتفل بزفافنا',
     displayDate: 'الأحد، ٣ مايو ٢٠٢٦',
@@ -10,12 +10,12 @@ export const translations = {
     venueName: 'صالة اللافندا',
     venueAddress: 'دمشق، سوريا',
 
-     cordiallyInvited: 'يسعدنا دعوتكم',
+    cordiallyInvited: 'يسعدنا دعوتكم',
     tapToOpen: 'انقر للفتح',
 
-     scrollDown: 'تمرير',
+    scrollDown: 'تمرير',
 
-     eyebrow: 'رسالة من القلب',
+    eyebrow: 'رسالة من القلب',
     messageTitle: 'نسعد بدعوتكم',
     messageParagraphs: [
       'بقلوب مفعمة بالبهجة والامتنان، ندعوكم لتكونوا جزءاً من أجمل احتفالاتنا.',
@@ -24,7 +24,7 @@ export const translations = {
     ],
     signature: 'بكل محبتنا، جودي وبشر',
 
-     saveTheDate: 'احفظوا الموعد',
+    saveTheDate: 'احفظوا الموعد',
     weAreMarried: 'أصبحنا زوجين',
     congratsHeading: 'مبروك يا جودي وبشر',
     congratsSubtitle: 'بدأت رحلتكما معاً — كلّ عام وأنتما بخير وسعادة وحب لا ينتهي',
@@ -34,11 +34,11 @@ export const translations = {
     minutes: 'دقائق',
     seconds: 'ثوانٍ',
 
-     locationEyebrow: 'مكان الحفل',
+    locationEyebrow: 'مكان الحفل',
     venueTitle: 'قاعة الاحتفال',
     getDirections: 'احصل على الاتجاهات',
 
-     leaveAWish: 'اتركوا أمنية',
+    leaveAWish: 'اتركوا أمنية',
     congratsBook: 'سجل التهاني',
     shareWishes: 'شاركوا محبتكم وتمنياتكم لـ',
     yourName: 'اسمكم',
@@ -50,7 +50,7 @@ export const translations = {
     wishesShared: 'أمنية مشتركة',
     wishesSharedPlural: 'أمنيات مشتركة',
 
-     timelineEyebrow: 'رحلة الحب',
+    timelineEyebrow: 'رحلة الحب',
     timelineTitle: 'من الخطوبة إلى الزفاف',
     timelineSubtitle: 'كل خطوة في مسيرتنا كانت بداية لفصل جديد',
     timelineEvents: [
@@ -88,7 +88,7 @@ export const translations = {
   },
 
   en: {
-     partner1: 'Joudi',
+    partner1: 'Joudi',
     partner2: 'Bisher',
     tagline: "We're getting married!",
     displayDate: 'Sunday, May 3rd, 2026',
@@ -96,14 +96,11 @@ export const translations = {
     venueName: 'Lavanda Hall',
     venueAddress: 'Damascus, Syria',
 
-  
     cordiallyInvited: 'You are cordially invited',
     tapToOpen: 'tap to open',
 
-  
     scrollDown: 'Scroll',
 
-   
     eyebrow: 'A Message from the Heart',
     messageTitle: 'Join Our Celebration',
     messageParagraphs: [
@@ -113,7 +110,6 @@ export const translations = {
     ],
     signature: 'With all our love, Joudi & Bisher',
 
- 
     saveTheDate: 'Save the Date',
     weAreMarried: 'We Are Married',
     congratsHeading: 'Congratulations Joudi & Bisher',
@@ -124,12 +120,10 @@ export const translations = {
     minutes: 'Minutes',
     seconds: 'Seconds',
 
-   
     locationEyebrow: 'Venue',
     venueTitle: 'The Celebration Hall',
     getDirections: 'Get Directions',
 
-   
     leaveAWish: 'Leave a Wish',
     congratsBook: 'Congratulations Book',
     shareWishes: 'Share your love and well wishes for',
@@ -142,7 +136,6 @@ export const translations = {
     wishesShared: 'Wish Shared',
     wishesSharedPlural: 'Wishes Shared',
 
-   
     timelineEyebrow: 'Our Journey',
     timelineTitle: 'From Engagement to Wedding',
     timelineSubtitle: 'Every step in our journey was the beginning of a new chapter',
@@ -181,7 +174,7 @@ export const translations = {
   },
 } as const
 
- export type Translations = {
+export type Translations = {
   [K in keyof typeof translations['en']]:
     K extends 'timelineEvents'
       ? ReadonlyArray<{ date: string; title: string; description: string; icon: string }>

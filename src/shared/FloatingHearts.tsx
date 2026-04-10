@@ -64,7 +64,6 @@ export function FloatingHearts() {
     resize()
     window.addEventListener('resize', resize)
 
-    // Seed initial hearts spread across the screen
     for (let i = 0; i < 30; i++) {
       const h = createHeart(canvas.width, canvas.height)
       h.y = Math.random() * canvas.height
@@ -75,7 +74,7 @@ export function FloatingHearts() {
       if (!canvas || !ctx) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-       if (hearts.length < 45 && Math.random() < 0.08) {
+      if (hearts.length < 45 && Math.random() < 0.08) {
         hearts.push(createHeart(canvas.width, canvas.height))
       }
 

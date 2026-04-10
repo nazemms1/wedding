@@ -1,11 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.tsx'
-import { BisherApp } from './bisher/BisherApp.tsx'
-import { LanguageContext, detectLang } from './context/LanguageContext'
-import { BisherContext, detectBisherLang, makeBisherContextValue } from './context/BisherContext'
-import { translations } from './i18n'
+import { BisherApp } from './weddings/bisher/App'
+import { WeddingContext, detectLang as detectBisherLang, makeContextValue as makeBisherContextValue } from './weddings/bisher/context'
+import JoudiApp from './weddings/joudi/App'
+import { LanguageContext, detectLang as detectJoudiLang } from './weddings/joudi/context'
+import { translations } from './weddings/joudi/i18n'
 
 const path = window.location.pathname
 const isBisher = path.includes('/bisher')
@@ -19,13 +19,13 @@ if (isBisher) {
 
   createRoot(document.getElementById('root')!).render(
     <StrictMode>
-      <BisherContext.Provider value={makeBisherContextValue(lang)}>
+      <WeddingContext.Provider value={makeBisherContextValue(lang)}>
         <BisherApp />
-      </BisherContext.Provider>
+      </WeddingContext.Provider>
     </StrictMode>,
   )
 } else {
-  const lang = detectLang()
+  const lang = detectJoudiLang()
   const t = translations[lang]
   const dir = lang === 'ar' ? 'rtl' : 'ltr'
   document.documentElement.lang = lang
@@ -34,7 +34,7 @@ if (isBisher) {
   createRoot(document.getElementById('root')!).render(
     <StrictMode>
       <LanguageContext.Provider value={{ lang, t, dir }}>
-        <App />
+        <JoudiApp />
       </LanguageContext.Provider>
     </StrictMode>,
   )

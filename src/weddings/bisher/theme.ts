@@ -1,5 +1,5 @@
 // Bisher theme: navy + silver + sky blue — no gold
-export const bisherTheme = {
+export const theme = {
   bg: {
     section: 'linear-gradient(160deg, #040D1E 0%, #071628 30%, #0A1E3A 60%, #051020 100%)',
     vignette: 'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(0,0,0,0.55) 100%)',
@@ -7,20 +7,17 @@ export const bisherTheme = {
   },
 
   color: {
-    // primary accent — sky blue
+    
     gold: '#38BDF8',
     goldLight: '#7DD3FC',
     goldDark: '#0EA5E9',
-    // sky blue palette
-    skyBlue: '#38BDF8',
+     skyBlue: '#38BDF8',
     skyBlueLight: '#7DD3FC',
     skyBlueDark: '#0EA5E9',
-    // silver
-    silver: '#CBD5E1',
+     silver: '#CBD5E1',
     silverLight: '#E2E8F0',
     silverDark: '#94A3B8',
-    // navy
-    navy: '#071628',
+     navy: '#071628',
     textOnDark: 'rgba(255,255,255,0.88)',
     textMuted: 'rgba(203,213,225,0.45)',
     tagline: 'rgba(56,189,248,0.75)',
@@ -32,8 +29,7 @@ export const bisherTheme = {
     half: 'rgba(56,189,248,0.5)',
     soft: 'rgba(56,189,248,0.35)',
     mid: 'rgba(56,189,248,0.6)',
-    // silver accent variants
-    skyHalf: 'rgba(56,189,248,0.4)',
+     skyHalf: 'rgba(56,189,248,0.4)',
     skySoft: 'rgba(56,189,248,0.25)',
   },
 

@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { BisherEnvelopeIntro } from './BisherEnvelopeIntro'
-import { BisherCoupleSection } from './BisherCoupleSection'
-import { BisherMessageSection } from './BisherMessageSection'
-import { BisherDateSection } from './BisherDateSection'
-import { BisherVenueSection } from './BisherVenueSection'
-import { SectionDivider } from '../components/SectionDivider'
-import { BackToTop } from '../components/BackToTop'
-import { FloatingHearts } from '../components/FloatingHearts'
+import { EnvelopeIntro } from './components/EnvelopeIntro'
+import { CoupleSection } from './components/CoupleSection'
+import { MessageSection } from './components/MessageSection'
+import { DateSection } from './components/DateSection'
+import { VenueSection } from './components/VenueSection'
+import { SectionDivider } from '../../shared/SectionDivider'
+import { BackToTop } from '../../shared/BackToTop'
+import { FloatingHearts } from '../../shared/FloatingHearts'
 
 export function BisherApp() {
   const [stage, setStage] = useState<'envelope' | 'main'>('envelope')
@@ -18,7 +18,7 @@ export function BisherApp() {
 
       <AnimatePresence>
         {stage === 'envelope' && (
-          <BisherEnvelopeIntro onOpen={() => setStage('main')} />
+          <EnvelopeIntro onOpen={() => setStage('main')} />
         )}
       </AnimatePresence>
 
@@ -29,13 +29,13 @@ export function BisherApp() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <BisherCoupleSection />
+            <CoupleSection />
             <SectionDivider />
-            <BisherMessageSection />
+            <MessageSection />
             <SectionDivider />
-            <BisherDateSection />
+            <DateSection />
             <SectionDivider />
-            <BisherVenueSection />
+            <VenueSection />
           </motion.main>
         )}
       </AnimatePresence>

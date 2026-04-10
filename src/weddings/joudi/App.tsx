@@ -6,9 +6,9 @@ import { MessageSection } from "./components/MessageSection";
 import { DateSection } from "./components/DateSection";
 import { VenueSection } from "./components/VenueSection";
 import { EngagementTimeline } from "./components/EngagementTimeline";
-import { BackToTop } from "./components/BackToTop";
-import { FloatingHearts } from "./components/FloatingHearts";
-import { SectionDivider } from "./components/SectionDivider";
+import { BackToTop } from "../../shared/BackToTop";
+import { FloatingHearts } from "../../shared/FloatingHearts";
+import { SectionDivider } from "../../shared/SectionDivider";
 
 function App() {
   const [stage, setStage] = useState<"envelope" | "main">("envelope");
