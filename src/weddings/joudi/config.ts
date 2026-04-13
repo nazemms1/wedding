@@ -2,20 +2,13 @@ import type { SiteConfig } from "../../types/config";
 
 export const config: SiteConfig = {
   meta: {
-    title: "Joudi & Bisher | October 15, 2026",
+    title: "Judy & Bisher | October 15, 2026",
     language: "en",
   },
   couple: {
-    partner1: "Joudi",
+    partner1: "Judy",
     partner2: "Bisher",
     tagline: "We're getting married!",
-  },
-
-  branding: {
-    openingLine: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
-    verse:
-      "﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾",
-    verseFont: "'Scheherazade New', 'Noto Naskh Arabic', serif",
   },
 
   message: {
@@ -24,7 +17,7 @@ export const config: SiteConfig = {
       "Your presence, laughter, and love have shaped who we are, and there is no one else we would rather have beside us as we begin this beautiful journey together.",
       "Please join us as we exchange our vows and celebrate the love that has brought us to this magical moment.",
     ],
-    signature: "With all our love, Joudi & Bisher",
+    signature: "With all our love, Judy & Bisher",
   },
   event: {
     weddingDate: "2026-05-03T21:00:00",
@@ -36,7 +29,8 @@ export const config: SiteConfig = {
     address: "245 Blossom Lane, Beverly Hills, CA 90210",
     googleMapsEmbedUrl:
       "https://maps.google.com/maps?q=33.49735850955281,36.249302772151715&z=16&output=embed",
-    googleMapsLink: "https://www.google.com/maps?q=33.49735850955281,36.249302772151715",
+    googleMapsLink:
+      "https://www.google.com/maps?q=33.49735850955281,36.249302772151715",
   },
   closing: {
     message:

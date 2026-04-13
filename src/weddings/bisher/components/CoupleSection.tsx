@@ -54,7 +54,7 @@ function DiamondDivider({
 }
 
 export function CoupleSection() {
-  const { t, theme, config } = useWedding();
+  const { t, theme } = useWedding();
 
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
@@ -179,83 +179,6 @@ export function CoupleSection() {
         </motion.div>
       ))}
 
-      {(config.branding.openingLine || config.branding.verse) && (
-        <div className="absolute top-8 left-0 right-0 z-10 flex flex-col items-center gap-3 px-6 pointer-events-none">
-          {config.branding.openingLine && (
-            <motion.p
-              dir="rtl"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 1 }}
-              style={{
-                fontFamily: config.branding.verseFont,
-                fontSize: "clamp(1.1rem, 3vw, 1.5rem)",
-                color: theme.color.skyBlue,
-                letterSpacing: 0,
-                lineHeight: 1.8,
-                textShadow: "0 0 20px rgba(56,189,248,0.4)",
-              }}
-            >
-              {config.branding.openingLine}
-            </motion.p>
-          )}
-
-          {config.branding.openingLine && config.branding.verse && (
-            <motion.div
-              className="flex items-center gap-3"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            >
-              <div
-                style={{
-                  width: 60,
-                  height: 1,
-                  background: `linear-gradient(to right, transparent, ${theme.ornament.half})`,
-                }}
-              />
-              <div
-                style={{
-                  width: 5,
-                  height: 5,
-                  borderRadius: "50%",
-                  background: theme.color.skyBlue,
-                  opacity: 0.5,
-                }}
-              />
-              <div
-                style={{
-                  width: 60,
-                  height: 1,
-                  background: `linear-gradient(to left, transparent, ${theme.ornament.half})`,
-                }}
-              />
-            </motion.div>
-          )}
-
-          {config.branding.verse && (
-            <motion.p
-              dir="rtl"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 1 }}
-              style={{
-                fontFamily: config.branding.verseFont,
-                fontSize: "clamp(0.95rem, 2.5vw, 1.25rem)",
-                color: "rgba(255,255,255,0.75)",
-                letterSpacing: 0,
-                lineHeight: 2,
-                textAlign: "center",
-                maxWidth: 600,
-                textShadow: "0 1px 8px rgba(0,0,0,0.5)",
-              }}
-            >
-              {config.branding.verse}
-            </motion.p>
-          )}
-        </div>
-      )}
-
       <div className="relative z-10 text-center px-6 flex flex-col items-center">
         <motion.div
           className="flex items-center gap-3 mb-6"
@@ -300,7 +223,7 @@ export function CoupleSection() {
           {t.cordiallyInvited}
         </motion.p>
 
-         <motion.div
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.55, duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -317,7 +240,7 @@ export function CoupleSection() {
               letterSpacing: "-0.01em",
             }}
           >
-            {t.partner2}
+            {t.partner1}
           </h1>
         </motion.div>
 
@@ -326,7 +249,7 @@ export function CoupleSection() {
           ornament={theme.color.gold}
         />
 
-         <motion.div
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.05, duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -343,7 +266,7 @@ export function CoupleSection() {
               letterSpacing: "-0.01em",
             }}
           >
-            {t.partner1}
+            {t.partner2}
           </h1>
         </motion.div>
 

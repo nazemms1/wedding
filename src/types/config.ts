@@ -8,14 +8,7 @@ export interface SiteConfig {
     partner2: string
     tagline: string
   }
-  branding: {
-   
-    openingLine: string | null
- 
-    verse: string | null
- 
-    verseFont: string
-  }
+  
   message: {
     paragraphs: string[]
     signature: string

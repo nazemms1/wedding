@@ -11,13 +11,7 @@ export const config: SiteConfig = {
     partner2: "بشر",
     tagline: "نحتفل بزفافنا",
   },
-
-  branding: {
-    openingLine: "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
-    verse:
-      "﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾",
-    verseFont: "'Scheherazade New', 'Noto Naskh Arabic', serif",
-  },
+ 
 
   message: {
     paragraphs: [
