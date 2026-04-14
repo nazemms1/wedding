@@ -10,52 +10,65 @@ import { BackToTop } from "../../shared/BackToTop";
 import { FloatingHearts } from "../../shared/FloatingHearts";
 import { SectionDivider } from "../../shared/SectionDivider";
 
-const SCROLL_PX_PER_SEC = 600;
-
+const SCROLL_SPEED = 1.8;  
 function useAutoScroll(active: boolean) {
   const rafRef = useRef<number | null>(null);
+  const isAutoScrollingRef = useRef(false);
 
   useEffect(() => {
-    if (!active) return;
+    if (!active) {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+      isAutoScrollingRef.current = false;
+      return;
+    }
 
-    let cancelled = false;
-    let velocity = 0;
-    let lastTs: number | null = null;
+    let lastTimestamp = 0;
 
-    function tick(ts: number) {
-      if (cancelled) return;
+    const animateScroll = (timestamp: number) => {
+      if (!isAutoScrollingRef.current) return;
 
-      const dt = lastTs !== null ? (ts - lastTs) / 1000 : 0;
-      lastTs = ts;
+      if (timestamp - lastTimestamp < 16) {
+        rafRef.current = requestAnimationFrame(animateScroll);
+        return;
+      }
+
+      lastTimestamp = timestamp;
 
       const maxScroll =
         document.documentElement.scrollHeight - window.innerHeight;
+      const currentScroll = window.scrollY;
 
-      const remaining = maxScroll - window.scrollY;
-      const targetSpeed =
-        remaining > 80
-          ? SCROLL_PX_PER_SEC
-          : SCROLL_PX_PER_SEC * (remaining / 80);
-
-      velocity += (targetSpeed - velocity) * Math.min(dt * 3, 1);
-
-      window.scrollTo(0, window.scrollY + velocity * dt);
-
-      if (window.scrollY < maxScroll - 1) {
-        rafRef.current = requestAnimationFrame(tick);
+      if (currentScroll >= maxScroll - 10) {
+        window.scrollTo(0, maxScroll);
+        return;
       }
-    }
 
-    const delay = setTimeout(() => {
-      if (cancelled) return;
-      window.scrollTo(0, 0);
-      rafRef.current = requestAnimationFrame(tick);
-    }, 1200);
+      let newScroll = currentScroll + SCROLL_SPEED;
+      if (newScroll > maxScroll) newScroll = maxScroll;
+
+      window.scrollTo(0, newScroll);
+      rafRef.current = requestAnimationFrame(animateScroll);
+    };
+
+    const startAutoScroll = () => {
+      if (isAutoScrollingRef.current) return;
+      isAutoScrollingRef.current = true;
+      lastTimestamp = 0;
+      rafRef.current = requestAnimationFrame(animateScroll);
+    };
+
+    const startDelay = setTimeout(startAutoScroll, 1500);
 
     return () => {
-      cancelled = true;
-      clearTimeout(delay);
-      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      clearTimeout(startDelay);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+      isAutoScrollingRef.current = false;
     };
   }, [active]);
 }

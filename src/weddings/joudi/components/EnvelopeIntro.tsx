@@ -173,7 +173,6 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           perspective: isMobile ? 1000 : 1600,
         }}
       >
-   
         <motion.div
           className="absolute top-0 left-0 overflow-hidden"
           style={{
@@ -246,8 +245,8 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
                 style={{
                   fontFamily: theme.font.body,
                   fontSize: isMobile
-                    ? "clamp(6px, 1.2vw, 8px)"
-                    : "clamp(7px, 1.5vw, 9px)",
+                    ? "clamp(12px, 1.2vw, 8px)"
+                    : "clamp(15px, 1.5vw, 9px)",
                   letterSpacing: "0.4em",
                   textTransform: "uppercase",
                   color: theme.color.goldLight,
@@ -276,7 +275,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           />
         </motion.div>
 
-         <motion.div
+        <motion.div
           className="absolute top-0 right-0 overflow-hidden"
           style={{
             width: "50%",
@@ -378,7 +377,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           />
         </motion.div>
 
-         <motion.div
+        <motion.div
           className="absolute inset-0 pointer-events-none"
           style={{ borderRadius: 8, zIndex: 11 }}
           animate={
@@ -395,7 +394,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           transition={{ duration: 0.6 }}
         />
 
-         <AnimatePresence>
+        <AnimatePresence>
           {stage === "idle" && (
             <motion.div
               className="absolute"
@@ -500,7 +499,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           )}
         </AnimatePresence>
 
-         <AnimatePresence>
+        <AnimatePresence>
           {revealed && (
             <motion.div
               className="absolute inset-0"
@@ -729,7 +728,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
           )}
         </AnimatePresence>
 
-         {!isMobile && (
+        {!isMobile && (
           <>
             <AnimatePresence>
               {stage === "idle" && (
@@ -784,7 +783,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
         )}
       </div>
 
-       <AnimatePresence>
+      <AnimatePresence>
         {stage === "idle" && showHint && (
           <motion.div
             className="absolute flex flex-col items-center gap-2"
@@ -834,7 +833,7 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
         )}
       </AnimatePresence>
 
-       {!isMobile && (
+      {!isMobile && (
         <AnimatePresence>
           {stage === "idle" && (
             <motion.p
