@@ -36,6 +36,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Disable smooth scroll when RAF-based auto-scroll is active (iOS Safari fix) */
+html.auto-scrolling {
+  scroll-behavior: auto;
+}
+
 html[dir="rtl"] body,
 html[dir="rtl"] * {
   font-family: 'Noto Naskh Arabic', serif !important;

@@ -10,7 +10,22 @@ import { BackToTop } from "../../shared/BackToTop";
 import { FloatingHearts } from "../../shared/FloatingHearts";
 import { SectionDivider } from "../../shared/SectionDivider";
 
-const SCROLL_SPEED = 1.8;  
+const SCROLL_SPEED = 1.8;
+
+function getScrollY(): number {
+  return window.scrollY ?? document.documentElement.scrollTop ?? 0;
+}
+
+function scrollTo(y: number) {
+  // Use scrollTo with behavior:'instant' to bypass CSS scroll-behavior:smooth,
+  // which conflicts with RAF-based scrolling on iOS Safari.
+  try {
+    window.scrollTo({ top: y, behavior: "instant" as ScrollBehavior });
+  } catch {
+    window.scrollTo(0, y);
+  }
+}
+
 function useAutoScroll(active: boolean) {
   const rafRef = useRef<number | null>(null);
   const isAutoScrollingRef = useRef(false);
@@ -38,18 +53,21 @@ function useAutoScroll(active: boolean) {
       lastTimestamp = timestamp;
 
       const maxScroll =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const currentScroll = window.scrollY;
+        document.documentElement.scrollHeight -
+        (window.visualViewport?.height ?? window.innerHeight);
+      const currentScroll = getScrollY();
 
       if (currentScroll >= maxScroll - 10) {
-        window.scrollTo(0, maxScroll);
+        scrollTo(maxScroll);
+        isAutoScrollingRef.current = false;
+        document.documentElement.classList.remove("auto-scrolling");
         return;
       }
 
       let newScroll = currentScroll + SCROLL_SPEED;
       if (newScroll > maxScroll) newScroll = maxScroll;
 
-      window.scrollTo(0, newScroll);
+      scrollTo(newScroll);
       rafRef.current = requestAnimationFrame(animateScroll);
     };
 
@@ -57,6 +75,7 @@ function useAutoScroll(active: boolean) {
       if (isAutoScrollingRef.current) return;
       isAutoScrollingRef.current = true;
       lastTimestamp = 0;
+      document.documentElement.classList.add("auto-scrolling");
       rafRef.current = requestAnimationFrame(animateScroll);
     };
 
@@ -69,6 +88,7 @@ function useAutoScroll(active: boolean) {
         rafRef.current = null;
       }
       isAutoScrollingRef.current = false;
+      document.documentElement.classList.remove("auto-scrolling");
     };
   }, [active]);
 }
