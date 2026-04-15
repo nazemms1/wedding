@@ -243,17 +243,30 @@ export function EnvelopeIntro({ onOpen }: EnvelopeIntroProps) {
               </p>
               <p
                 style={{
-                  fontFamily: theme.font.body,
+                  fontFamily: theme.font.display,
                   fontSize: isMobile
-                    ? "clamp(12px, 1.2vw, 8px)"
-                    : "clamp(15px, 1.5vw, 9px)",
-                  letterSpacing: "0.4em",
-                  textTransform: "uppercase",
+                    ? "clamp(12px, 3vw, 18px)"
+                    : "clamp(16px, 4vw, 24px)",
                   color: theme.color.goldLight,
-                  marginTop: 6,
+                  fontStyle: "italic",
+                  margin: "2px 0",
                 }}
               >
-                &amp; {t.partner2}
+                &amp;
+              </p>
+              <p
+                style={{
+                  fontFamily: theme.font.display,
+                  fontSize: isMobile
+                    ? "clamp(20px, 5vw, 32px)"
+                    : "clamp(28px, 7vw, 48px)",
+                  color: theme.color.goldLight,
+                  lineHeight: 1,
+                  letterSpacing: "0.02em",
+                  textAlign: "center",
+                }}
+              >
+                {t.partner2}
               </p>
               <div
                 style={{

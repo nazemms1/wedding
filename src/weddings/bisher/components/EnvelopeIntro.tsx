@@ -195,20 +195,34 @@ export function EnvelopeIntro({ onOpen }: Props) {
                   color: theme.color.goldLight,
                   lineHeight: 1,
                   letterSpacing: "0.02em",
+                  textAlign: "center",
                 }}
               >
                 {t.partner1}
               </p>
               <p
                 style={{
-                  fontFamily: theme.font.body,
-                  letterSpacing: "0.4em",
-                  textTransform: "uppercase",
+                  fontFamily: theme.font.display,
+                  fontSize: "clamp(16px, 4vw, 24px)",
                   color: theme.color.goldLight,
-                  marginTop: 6,
+                  fontStyle: "italic",
+                  margin: "4px 0",
+                  textAlign: "center",
                 }}
               >
-                &amp; {t.partner2}
+                &amp;
+              </p>
+              <p
+                style={{
+                  fontFamily: theme.font.display,
+                  fontSize: "clamp(28px, 7vw, 48px)",
+                  color: theme.color.goldLight,
+                  lineHeight: 1,
+                  letterSpacing: "0.02em",
+                  textAlign: "center",
+                }}
+              >
+                {t.partner2}
               </p>
               <div
                 style={{
