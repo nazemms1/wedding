@@ -10,16 +10,14 @@ import { BackToTop } from "../../shared/BackToTop";
 import { FloatingHearts } from "../../shared/FloatingHearts";
 import { SectionDivider } from "../../shared/SectionDivider";
 
-const SCROLL_SPEED = 1.8;
+const SCROLL_SPEED = 2.5;
 
 function getScrollY(): number {
   return window.scrollY ?? document.documentElement.scrollTop ?? 0;
 }
 
 function scrollTo(y: number) {
-  // Use scrollTo with behavior:'instant' to bypass CSS scroll-behavior:smooth,
-  // which conflicts with RAF-based scrolling on iOS Safari.
-  try {
+   try {
     window.scrollTo({ top: y, behavior: "instant" as ScrollBehavior });
   } catch {
     window.scrollTo(0, y);
