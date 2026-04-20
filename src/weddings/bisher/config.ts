@@ -23,7 +23,7 @@ export const config: SiteConfig = {
   },
 
   event: {
-    weddingDate: "2026-04-30T21:00:00+03:00",
+    weddingDate: "2026-04-30T19:00:00+03:00",
     displayDate: "الخميس، ٣٠ أبريل ٢٠٢٦",
     displayTime: "٧:٠٠ مساءً",
   },
